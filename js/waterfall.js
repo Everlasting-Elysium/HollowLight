@@ -95,10 +95,8 @@
     history.pushState({ hollowWindow: true }, '', href);
     win.style.display = 'flex';
 
-    // Freeze background while overlay is open
+    // Overlay covers clicks via z-index — no need to set pointer-events
     window.removeEventListener('resize', waterfallDebounced);
-    var main = document.querySelector('main.home');
-    if (main) main.style.pointerEvents = 'none';
   }
 
   /**
@@ -111,18 +109,16 @@
     if (!win) return;
 
     win.style.display = 'none';
-    if (frame) frame.src = '';
+    if (frame) frame.src = 'about:blank';
 
     if (!fromPopstate) {
-      history.pushState(null, '', pageUrl);
+      history.replaceState(null, '', pageUrl);
     }
 
     // Resume waterfall
     window.addEventListener('resize', waterfallDebounced);
     waterfallDebounced();
 
-    var main = document.querySelector('main.home');
-    if (main) main.style.pointerEvents = 'auto';
   }
 
   /* ---- Expose globally ---- */
