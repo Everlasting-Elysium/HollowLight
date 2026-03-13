@@ -1,0 +1,60 @@
+albums:
+  - id: cyberpunk
+    name: 赛博朋克城市
+    cover: https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80
+    description: 霓虹、雨水与钢铁森林
+    photos:
+      - url: https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&q=75
+        alt: 城市夜景
+      - url: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=75
+        alt: 霓虹灯光
+      - url: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=75
+        alt: 电路纹理
+      - url: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=400&q=75
+        alt: 科技光效
+      - url: https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=400&q=75
+        alt: 深色抽象
+
+  - id: interknot
+    name: 绳网档案
+    cover: https://images.unsplash.com/photo-1636191240584-9c3a1f1b97e2?w=600&q=80
+    description: 来自空洞深处的影像记录
+    photos:
+      - url: https://images.unsplash.com/photo-1636191240584-9c3a1f1b97e2?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1636191240584-9c3a1f1b97e2?w=400&q=75
+        alt: 抽象光纹
+      - url: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=75
+        alt: 星空夜景
+      - url: https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75
+        alt: 山脉云海
+      - url: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=75
+        alt: 森林晨光
+      - url: https://images.unsplash.com/photo-1431440869543-efaf3388c585?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1431440869543-efaf3388c585?w=400&q=75
+        alt: 沙漠黄昏
+      - url: https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=400&q=75
+        alt: 湖光倒影
+
+  - id: tech
+    name: 技术备忘
+    cover: https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&q=80
+    description: 代码、终端与咖啡渍
+    photos:
+      - url: https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&q=75
+        alt: 笔记本电脑
+      - url: https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1484755560615-a4c64e778a6c?w=400&q=75
+        alt: 暗色风景
+      - url: https://images.unsplash.com/photo-1536148935331-408321065b18?w=1200&q=80
+        thumb: https://images.unsplash.com/photo-1536148935331-408321065b18?w=400&q=75
+        alt: 暗色科技

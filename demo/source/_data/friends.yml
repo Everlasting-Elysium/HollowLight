@@ -1,0 +1,30 @@
+friends:
+  - name: Hexo
+    url: https://hexo.io
+    avatar: https://hexo.io/icon/favicon-196x196.png
+    description: 快速、简洁且高效的博客框架
+
+  - name: GitHub
+    url: https://github.com
+    avatar: https://github.githubassets.com/favicons/favicon.svg
+    description: 全球最大的代码托管平台
+
+  - name: 绝区零
+    url: https://zzz.hoyoverse.com
+    avatar: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=80&q=80
+    description: 米哈游出品的都市动作 RPG
+
+  - name: 崩坏：星穹铁道
+    url: https://sr.mihoyo.com
+    avatar: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=80&q=80
+    description: 开拓银河、探索宇宙
+
+  - name: 示例博客 A
+    url: https://example.com
+    avatar: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&q=80
+    description: 一个热爱写作的朋友
+
+  - name: 示例博客 B
+    url: https://example.com
+    avatar: https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&q=80
+    description: 关注技术与生活的博主
