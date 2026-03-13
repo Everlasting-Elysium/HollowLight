@@ -260,7 +260,7 @@
       if (!win) return;
       win.style.display = 'none';
       if (frame) frame.src = '';
-      if (!fromPopstate) history.pushState(null, '', window.location.pathname);
+      if (!fromPopstate) history.back();
     };
 
     /* Close window on Escape key */
