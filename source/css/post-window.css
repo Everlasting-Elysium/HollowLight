@@ -130,11 +130,10 @@ html.window-mode .page-window {
 .page-window-cover-panel {
   width: 280px;
   flex-shrink: 0;
-  padding: 24px 12px 24px 20px;
+  padding: 20px 12px 20px 20px;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
+  align-items: stretch;
+  }
 
 .post-window-cover-card,
 .page-window-cover-card {
@@ -143,14 +142,15 @@ html.window-mode .page-window {
   border: 3px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
   background: #111;
+  display: flex;
 }
 
 .post-window-cover-card img,
 .page-window-cover-card img {
   width: 100%;
-  height: auto;
-  max-height: 420px;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
