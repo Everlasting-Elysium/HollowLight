@@ -573,28 +573,6 @@ main {
   background-color: #121212;
 }
 
-.window-close {
-  position: absolute;
-  top: -5px;
-  right: 25px;
-  cursor: pointer;
-  z-index: 2;
-  transition: transform 0.2s ease;
-}
-
-.window-close:hover {
-  transform: scale(1.1);
-}
-
-.window-close svg {
-  width: 80px;
-  height: 55px;
-  display: block;
-}
-
-.window-close:hover svg path {
-  fill: var(--hl-accent);
-}
 
 .window-frame {
   width: 100%;
@@ -667,12 +645,4 @@ main {
     height: calc(100% - 100px);
   }
 
-  .window-close {
-    right: 10px;
-  }
-
-  .window-close svg {
-    width: 60px;
-    height: 42px;
-  }
 }
