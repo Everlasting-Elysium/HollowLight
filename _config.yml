@@ -1,0 +1,52 @@
+# ===================================
+# HollowLight — Hexo Theme Config
+# ===================================
+
+# 博主信息
+author:
+  name: "传奇绳匠"
+  avatar: /img/avatar.png
+  bio: "这里是我的博客"
+  level: 1
+  credit_score: 900          # 信用分 (0–1200)，显示在 Header 进度条
+
+# 导航菜单（key: 显示名称，value: 路径）
+menu:
+  推送: /
+  归档: /archives/
+  标签: /tags/
+  相册: /album/
+  伙伴: /friends/
+  关于: /about/
+
+# 社交链接（留空则不显示）
+social:
+  github: ""
+  twitter: ""
+  weibo: ""
+  email: ""
+
+# 背景图（支持 URL 或 /img/ 路径）
+background: /img/bg.png
+
+# 相册配置
+album:
+  data: source/_data/album.yml    # 相册数据文件路径
+  columns: 4                       # 网格列数（桌面端）
+
+# 友链数据文件
+friends_data: source/_data/friends.yml
+
+# 代码高亮
+highlight:
+  theme: one-dark
+
+# 评论（预留，暂不实现）
+comment:
+  enable: false
+  type: ""                         # waline / giscus / twikoo
+
+# 页脚
+footer:
+  since: 2024
+  icp: ""                          # 备案号，留空不显示
