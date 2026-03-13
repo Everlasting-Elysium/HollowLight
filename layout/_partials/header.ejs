@@ -1,0 +1,71 @@
+<%
+  /* ---- Safe defaults for all theme variables ---- */
+  var author      = theme.author || {};
+  var authorName  = author.name || config.author || '传奇绳匠';
+  var authorAvatar = author.avatar || '/img/avatar.png';
+  var authorLevel = author.level != null ? author.level : 1;
+  var creditScore = author.credit_score != null ? author.credit_score : 900;
+
+  /* Progress bar width: credit_score / 1200 * 100%, clamped to 0-100 */
+  var progressWidth = Math.max(0, Math.min(creditScore / 1200 * 100, 100));
+
+  /* Level display: zero-padded to 2 digits */
+  var levelDisplay = String(authorLevel).length < 2
+    ? '0' + String(authorLevel)
+    : String(authorLevel);
+
+  /* Menu items */
+  var menuItems   = theme.menu || {};
+  var currentPath = page.path || '';
+  var isHomePage  = is_home();
+%>
+<header>
+  <!-- Personal Info Card -->
+  <div class="personal">
+    <img
+      src="<%- url_for(authorAvatar) %>"
+      alt="<%= authorName %>"
+      class="avatar"
+      onerror="this.onerror=null;this.style.background='#333';"
+    >
+    <div class="right">
+      <<%= isHomePage ? 'h1' : 'h2' %> class="name">
+        <a href="<%- url_for('/') %>"><%= authorName %></a>
+      </<%= isHomePage ? 'h1' : 'h2' %>>
+      <span class="creditScore">
+        <span class="score"><%= creditScore %>/1200</span>
+        <span class="progressBar" style="width: <%= progressWidth %>%;"></span>
+      </span>
+    </div>
+    <div class="level">
+      <span class="levelNum"><%= levelDisplay %></span>
+      <span class="levelText">LEVEL</span>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="tabs">
+    <% for (var name in menuItems) { %>
+      <%
+        var menuPath = menuItems[name];
+        var isActive = false;
+
+        if (menuPath === '/' || menuPath === '') {
+          /* Home tab: active on index / home pages */
+          isActive = isHomePage;
+        } else {
+          /* Other tabs: normalize and compare paths */
+          var menuNorm = url_for(menuPath).replace(/\/+$/, '');
+          var pageNorm = url_for(currentPath)
+            .replace(/index\.html$/, '')
+            .replace(/\/+$/, '');
+          isActive = (menuNorm === pageNorm) ||
+                     (pageNorm.indexOf(menuNorm) === 0 && menuNorm.length > 1);
+        }
+      %>
+      <span class="tab<%= isActive ? ' choiced' : '' %>">
+        <a href="<%- url_for(menuPath) %>"><%= name %></a>
+      </span>
+    <% } %>
+  </div>
+</header>
