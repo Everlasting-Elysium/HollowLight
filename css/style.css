@@ -254,8 +254,7 @@ header .personal {
   background: linear-gradient(var(--hl-card-gradient-start), var(--hl-card-gradient-end));
   height: 46px;
   min-width: 0;
-  width: max-content;
-  max-width: 50%;
+  flex-shrink: 1;
   margin: 0 0 0 10px;
   border-radius: var(--hl-radius-pill);
   box-shadow:
@@ -265,26 +264,32 @@ header .personal {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  flex-shrink: 0;
-  gap: 6px;
+  overflow: hidden;
+  gap: 0;
   padding-right: 10px;
 }
 
 header .personal .avatar-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  width: 44px;
+  height: 44px;
   text-decoration: none;
 }
 
 header .personal img.avatar {
   border-radius: 100%;
-  height: 28px;
   width: 28px;
-  margin: 0 0 0 8px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  max-width: 28px;
+  max-height: 28px;
   border: 1.5px solid rgba(255,255,255,0.25);
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;
   transition: border-color 0.2s;
 }
 
@@ -300,10 +305,10 @@ header .personal .url-bar {
   background: rgba(0, 0, 0, 0.45);
   border-radius: var(--hl-radius-pill);
   padding: 4px 10px;
-  min-width: 120px;
-  max-width: 340px;
-  cursor: default;
+  min-width: 0;
+  flex: 1;
   overflow: hidden;
+  cursor: default;
 }
 
 header .personal .url-bar-lock {
@@ -351,6 +356,7 @@ header .tabs {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   margin-left: auto;
   margin-right: 10px;
   background-color: var(--hl-tab-bg);
@@ -361,8 +367,6 @@ header .tabs {
     linear-gradient(var(--hl-black) 8px, transparent 0),
     linear-gradient(90deg, #0f0f0f 2px, transparent 0);
   background-size: 10px 10px;
-  flex-shrink: 1;
-  overflow: hidden;
 }
 
 header .tabs .tab {
