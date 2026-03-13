@@ -125,3 +125,34 @@
   from { border-color: var(--hl-blue); }
   to   { border-color: var(--hl-accent); }
 }
+
+/* ---- Card Author (bottom-left of cover) ---- */
+
+.home .card .card-author {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home .card .card-author-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.home .card .card-author-name {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  white-space: nowrap;
+}

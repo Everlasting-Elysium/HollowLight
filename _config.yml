@@ -5,7 +5,7 @@
 # 博主信息
 author:
   name: "传奇绳匠"
-  avatar: /img/avatar.png
+  avatar: /img/avatar.svg
   bio: "这里是我的博客"
   level: 1
   credit_score: 900          # 信用分 (0–1200)，显示在 Header 进度条
