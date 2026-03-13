@@ -1,0 +1,67 @@
+<% const friendsData = site.data.friends || { friends: [] } %>
+<% const friends = friendsData.friends || [] %>
+
+<link rel="stylesheet" href="<%- url_for('/css/friends.css') %>">
+
+<div class="friends-page">
+  <!-- Page header (ZZZ style) -->
+  <header class="friends-header">
+    <h1 class="friends-header__title">伙伴</h1>
+    <div class="friends-header__line" aria-hidden="true">
+      <span class="friends-header__dot"></span>
+    </div>
+    <p class="friends-header__sub">INTER-KNOT LINKS</p>
+  </header>
+
+  <% if (friends.length > 0) { %>
+  <!-- Friends grid -->
+  <section class="friends-grid">
+    <% friends.forEach(function(friend, idx) { %>
+    <a
+      class="friend-card"
+      href="<%= friend.url %>"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="<%= friend.name %>"
+      style="animation-delay: <%= idx * 60 %>ms"
+    >
+      <div class="friend-card__avatar-wrap">
+        <img
+          class="friend-card__avatar"
+          src="<%= friend.avatar %>"
+          alt="<%= friend.name %>"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.classList.add('friend-card__avatar--error')"
+        />
+      </div>
+      <h3 class="friend-card__name"><%= friend.name %></h3>
+      <% if (friend.desc) { %>
+      <p class="friend-card__desc"><%= friend.desc %></p>
+      <% } %>
+      <span class="friend-card__url">
+        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <%= (friend.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '') %>
+      </span>
+    </a>
+    <% }) %>
+  </section>
+  <% } else { %>
+  <div class="friends-empty">
+    <div class="friends-empty__icon">⬡</div>
+    <p class="friends-empty__text">暂无伙伴数据</p>
+    <p class="friends-empty__hint">请在 source/_data/friends.yml 中添加友链</p>
+  </div>
+  <% } %>
+
+  <!-- Apply section -->
+  <footer class="friends-footer">
+    <div class="friends-footer__inner">
+      <h2 class="friends-footer__title">想加入绳网？</h2>
+      <p class="friends-footer__desc">欢迎交换友链，请在评论区或通过社交链接联系我</p>
+    </div>
+  </footer>
+</div>
