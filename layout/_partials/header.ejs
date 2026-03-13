@@ -3,43 +3,39 @@
   var author      = theme.author || {};
   var authorName  = author.name || config.author || '传奇绳匠';
   var authorAvatar = author.avatar || '/img/avatar.png';
-  var authorLevel = author.level != null ? author.level : 1;
-  var creditScore = author.credit_score != null ? author.credit_score : 900;
-
-  /* Progress bar width: credit_score / 1200 * 100%, clamped to 0-100 */
-  var progressWidth = Math.max(0, Math.min(creditScore / 1200 * 100, 100));
-
-  /* Level display: zero-padded to 2 digits */
-  var levelDisplay = String(authorLevel).length < 2
-    ? '0' + String(authorLevel)
-    : String(authorLevel);
 
   /* Menu items */
   var menuItems   = theme.menu || {};
   var currentPath = page.path || '';
   var isHomePage  = is_home();
+
+  /* URL bar */
+  var siteUrl = config.url || '';
+  /* Short URL: strip protocol, keep host+path, uppercase */
+  var urlShort = siteUrl.replace(/^https?:\/\//i, '').replace(/\/+$/, '').toUpperCase();
+  /* Full URL with trailing slash */
+  var urlFull = siteUrl.replace(/\/+$/, '') + '/';
 %>
 <header>
   <!-- Personal Info Card -->
   <div class="personal">
-    <img
-      src="<%- url_for(authorAvatar) %>"
-      alt="<%= authorName %>"
-      class="avatar"
-      onerror="this.onerror=null;this.style.background='#333';"
-    >
-    <div class="right">
-      <<%= isHomePage ? 'h1' : 'h2' %> class="name">
-        <a href="<%- url_for('/') %>"><%= authorName %></a>
-      </<%= isHomePage ? 'h1' : 'h2' %>>
-      <span class="creditScore">
-        <span class="score"><%= creditScore %>/1200</span>
-        <span class="progressBar" style="width: <%= progressWidth %>%;"></span>
+    <a href="<%- url_for('/') %>" class="avatar-link">
+      <img
+        src="<%- url_for(authorAvatar) %>"
+        alt="<%= authorName %>"
+        class="avatar"
+        onerror="this.onerror=null;this.style.background='#333';"
+      >
+    </a>
+    <div class="url-bar">
+      <span class="url-bar-lock">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="6" width="10" height="7" rx="1.5" fill="currentColor"/>
+          <path d="M3 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
       </span>
-    </div>
-    <div class="level">
-      <span class="levelNum"><%= levelDisplay %></span>
-      <span class="levelText">LEVEL</span>
+      <span class="url-short"><%= urlShort %></span>
+      <span class="url-full"><%= urlFull %></span>
     </div>
   </div>
 
