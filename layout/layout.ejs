@@ -9,8 +9,8 @@
   <% if (theme.favicon) { %>
   <link rel="icon" href="<%- url_for(theme.favicon) %>">
   <% } %>
-  <!-- Font: MaoKen Assorted Sans -->
-  <link rel="stylesheet" href="https://chinese-font.netlify.app/fonts/mksjh/maokenassortedsans1_30/index.css">
+  <!-- Font: MaoKen Assorted Sans (unpkg CDN, same as interknot reference) -->
+  <style>@import url('https://unpkg.com/@chinese-fonts/mksjh@1.4.0/dist/MaokenAssortedSans1.30/result.css');</style>
   <!-- Theme CSS -->
   <link rel="stylesheet" href="<%- url_for('/css/style.css') %>">
   <%- open_graph() %>

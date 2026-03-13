@@ -3,6 +3,7 @@ title: 解构绝区零的设计语言
 date: 2024-02-18 20:30:00
 tags: [设计, UI, ZZZ]
 headimg: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
+views: 876
 ---
 
 《绝区零》的 UI 设计是近年来游戏界面设计中少见的佳作。今天拆解一下它的核心视觉语言，以及 HollowLight 是如何将其迁移到博客场景的。

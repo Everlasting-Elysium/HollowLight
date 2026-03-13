@@ -4,6 +4,7 @@ date: 2024-03-01 12:00:00
 tags: [主题, Hexo, 介绍]
 headimg: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=1200&q=80
 pin: true
+views: 2048
 ---
 
 这是 **HollowLight** —— 一个深度致敬《绝区零》「绳网」论坛 UI 的 Hexo 主题。纯黑背景、荧光黄强调色、标志性右下角切角，让你的博客像赛博朋克世界里的情报中转站。

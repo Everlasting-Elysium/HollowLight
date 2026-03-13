@@ -3,6 +3,7 @@ title: Markdown 样式展示
 date: 2024-01-28 15:00:00
 tags: [Markdown, 测试, 排版]
 headimg: https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&q=80
+views: 1337
 ---
 
 这篇文章展示 HollowLight 主题对各类 Markdown 元素的渲染效果。

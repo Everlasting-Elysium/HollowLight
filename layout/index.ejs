@@ -7,12 +7,15 @@
     <% site.posts.each(function(post) { %>
       <% if (post.pin) { %>
         <a href="<%- url_for(post.path) %>" class="card pin">
-          <img
-            class="headimg"
-            src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
-            alt="<%= post.title || '' %>"
-            onerror="this.onerror=null;this.src='<%- defaultCover %>'"
-          >
+          <div class="card-cover">
+            <img
+              class="headimg"
+              src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
+              alt="<%= post.title || '' %>"
+              onerror="this.onerror=null;this.src='<%- defaultCover %>'"
+            >
+            <% if (post.views) { %><span class="card-views">👁 <%= post.views %></span><% } %>
+          </div>
           <div class="post">
             <h2 class="title">【置顶】<%= post.title || '' %></h2>
             <p class="excerpt">
@@ -32,12 +35,15 @@
     <% site.posts.each(function(post) { %>
       <% if (!post.pin) { %>
         <a href="<%- url_for(post.path) %>" class="card">
-          <img
-            class="headimg"
-            src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
-            alt="<%= post.title || '' %>"
-            onerror="this.onerror=null;this.src='<%- defaultCover %>'"
-          >
+          <div class="card-cover">
+            <img
+              class="headimg"
+              src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
+              alt="<%= post.title || '' %>"
+              onerror="this.onerror=null;this.src='<%- defaultCover %>'"
+            >
+            <% if (post.views) { %><span class="card-views">👁 <%= post.views %></span><% } %>
+          </div>
           <div class="post">
             <h2 class="title"><%= post.title || '' %></h2>
             <p class="excerpt">

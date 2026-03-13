@@ -26,9 +26,9 @@
 
 .home .card {
   width: 256px;
-  border-radius: var(--radius-card);
+  border-radius: 20px;
   border-bottom-right-radius: 0;
-  border: 3px solid #000;
+  border: 5px solid #000;
   background: var(--hl-card);
   overflow: hidden;
   box-sizing: border-box;
@@ -41,7 +41,7 @@
 
 .home .card:hover {
   animation: card-border-glow 1s linear 0.3s infinite alternate;
-  border-color: var(--border-accent);
+  border-color: var(--hl-accent);
 }
 
 /* ---- Pinned Card ---- */
@@ -52,7 +52,7 @@
 
 .home .card.pin:hover {
   animation: card-border-glow-pin 1s linear 0.3s infinite alternate;
-  border-color: var(--border-accent);
+  border-color: var(--hl-accent);
 }
 
 /* ---- Cover Image ---- */
@@ -61,6 +61,31 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* ---- Cover Wrapper (for views badge) ---- */
+
+.home .card .card-cover {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.home .card .card-views {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px 6px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* ---- Content Area ---- */
@@ -93,10 +118,10 @@
 
 @keyframes card-border-glow {
   from { border-color: #000; }
-  to   { border-color: var(--border-accent); }
+  to   { border-color: var(--hl-accent); }
 }
 
 @keyframes card-border-glow-pin {
   from { border-color: var(--hl-blue); }
-  to   { border-color: var(--border-accent); }
+  to   { border-color: var(--hl-accent); }
 }
