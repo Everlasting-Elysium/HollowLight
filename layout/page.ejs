@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="<%- url_for('/css/post.css') %>">
+<link rel="stylesheet" href="<%- url_for('/css/page.css') %>">
+<link rel="stylesheet" href="<%- url_for('/css/post-window.css') %>">
+
+<script>
+(function () {
+  var isWindow = false;
+  try { isWindow = new URLSearchParams(window.location.search).get('window') === 'true'; } catch(e) {}
+  if (!isWindow) { try { isWindow = window.self !== window.top; } catch(e) { isWindow = true; } }
+  if (isWindow) document.documentElement.classList.add('window-mode');
+})();
+</script>
+
+<%
+  var pageTitle    = page.title || '';
+  var hasCover     = !!(page.headimg);
+  var coverUrl     = hasCover ? url_for(page.headimg) : '';
+  var authorName   = (theme.author && theme.author.name)   ? theme.author.name   : (config.author || '');
+  var authorAvatar = url_for(
+    (theme.author && theme.author.avatar) ? theme.author.avatar : '/img/avatar.png'
+  );
+%>
+
+<!-- ═══════════ Normal Mode ═══════════ -->
+<article class="page-article">
+
+  <% if (hasCover) { %>
+  <div class="page-hero" style="background-image:url('<%- coverUrl %>')">
+    <div class="page-hero-overlay">
+      <div class="page-hero-inner">
+        <h1 class="page-title"><%= pageTitle %></h1>
+      </div>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="page-header-plain">
+    <div class="page-header-inner">
+      <h1 class="page-title"><%= pageTitle %></h1>
+    </div>
+  </div>
+  <% } %>
+
+  <div class="page-body">
+    <div class="markdown-content">
+      <%- page.content %>
+    </div>
+  </div>
+
+</article>
+
+<!-- ═══════════ Window Mode ═══════════ -->
+<article class="page-window">
+
+  <% if (hasCover) { %>
+  <aside class="page-window-cover" style="background-image:url('<%- coverUrl %>')"></aside>
+  <% } %>
+
+  <div class="page-window-main">
+    <div class="page-window-top">
+      <div class="page-window-author">
+        <img class="page-window-avatar" src="<%- authorAvatar %>" alt="">
+        <span><%= authorName %></span>
+      </div>
+    </div>
+    <h1 class="page-window-title"><%= pageTitle %></h1>
+    <div class="page-window-content">
+      <div class="markdown-content">
+        <%- page.content %>
+      </div>
+    </div>
+  </div>
+
+</article>

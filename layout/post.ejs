@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="<%- url_for('/css/post.css') %>">
+<link rel="stylesheet" href="<%- url_for('/css/post-window.css') %>">
+
+<script>
+(function () {
+  var isWindow = false;
+  try { isWindow = new URLSearchParams(window.location.search).get('window') === 'true'; } catch(e) {}
+  if (!isWindow) { try { isWindow = window.self !== window.top; } catch(e) { isWindow = true; } }
+  if (isWindow) document.documentElement.classList.add('window-mode');
+})();
+</script>
+
+<%
+  var postTitle    = page.title || '无题';
+  var postDate     = page.date;
+  var hasCover     = !!(page.headimg);
+  var coverUrl     = hasCover ? url_for(page.headimg) : '';
+  var authorName   = (theme.author && theme.author.name)   ? theme.author.name   : (config.author || '');
+  var authorAvatar = url_for(
+    (theme.author && theme.author.avatar) ? theme.author.avatar : '/img/avatar.png'
+  );
+%>
+
+<!-- ═══════════ Normal Mode ═══════════ -->
+<article class="post-article">
+
+  <% if (hasCover) { %>
+  <div class="post-hero" style="background-image:url('<%- coverUrl %>')">
+    <div class="post-hero-overlay">
+      <div class="post-hero-inner">
+        <h1 class="post-title"><%= postTitle %></h1>
+        <div class="post-meta">
+          <time datetime="<%- date(postDate, 'YYYY-MM-DD') %>">
+            <%- date(postDate, 'YYYY / MM / DD') %>
+          </time>
+          <% if (page.tags && page.tags.length) { %>
+          <div class="post-tags">
+            <% page.tags.forEach(function (tag) { %>
+            <a class="tag-pill" href="<%- url_for(tag.path) %>"
+               onclick="event.preventDefault();if(typeof openWindow==='function'){openWindow('<%- url_for(tag.path) %>')}else{window.location.href=this.href}">
+              <%= tag.name %>
+            </a>
+            <% }); %>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="post-header-plain">
+    <div class="post-header-inner">
+      <h1 class="post-title"><%= postTitle %></h1>
+      <div class="post-meta">
+        <time datetime="<%- date(postDate, 'YYYY-MM-DD') %>">
+          <%- date(postDate, 'YYYY / MM / DD') %>
+        </time>
+        <% if (page.tags && page.tags.length) { %>
+        <div class="post-tags">
+          <% page.tags.forEach(function (tag) { %>
+          <a class="tag-pill" href="<%- url_for(tag.path) %>"
+             onclick="event.preventDefault();if(typeof openWindow==='function'){openWindow('<%- url_for(tag.path) %>')}else{window.location.href=this.href}">
+            <%= tag.name %>
+          </a>
+          <% }); %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+  <div class="post-body">
+    <div class="markdown-content">
+      <%- page.content %>
+    </div>
+  </div>
+
+</article>
+
+<!-- ═══════════ Window Mode ═══════════ -->
+<article class="post-window">
+
+  <% if (hasCover) { %>
+  <aside class="post-window-cover" style="background-image:url('<%- coverUrl %>')"></aside>
+  <% } %>
+
+  <div class="post-window-main">
+    <div class="post-window-top">
+      <div class="post-window-author">
+        <img class="post-window-avatar" src="<%- authorAvatar %>" alt="">
+        <span><%= authorName %></span>
+      </div>
+    </div>
+    <h1 class="post-window-title"><%= postTitle %></h1>
+    <div class="post-window-content">
+      <div class="markdown-content">
+        <%- page.content %>
+      </div>
+    </div>
+  </div>
+
+</article>

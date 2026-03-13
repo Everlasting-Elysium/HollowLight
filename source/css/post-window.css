@@ -1,0 +1,136 @@
+/* ============================================
+ * HollowLight — Post / Page Window Mode
+ * Activated when loaded inside iframe popup
+ * (html.window-mode class set by inline JS)
+ * ============================================ */
+
+/* ─── Hide site chrome ─── */
+html.window-mode header,
+html.window-mode footer,
+html.window-mode .bg,
+html.window-mode .loading,
+html.window-mode ._0kd,
+html.window-mode .window {
+  display: none !important;
+}
+
+html.window-mode main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  min-height: auto;
+}
+
+html.window-mode body {
+  overflow-x: hidden;
+  background: var(--hl-black, #000);
+}
+
+/* ─── Toggle layouts ─── */
+html.window-mode .post-article,
+html.window-mode .page-article {
+  display: none;
+}
+
+html.window-mode .post-window,
+html.window-mode .page-window {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ─── Window Sidebar (cover image) ─── */
+.post-window-cover,
+.page-window-cover {
+  width: 320px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* ─── Window Main Area ─── */
+.post-window-main,
+.page-window-main {
+  flex: 1;
+  min-width: 0;
+  padding: 36px 40px 60px;
+  overflow-y: auto;
+}
+
+/* Author bar */
+.post-window-top,
+.page-window-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.post-window-author,
+.page-window-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-window-avatar,
+.page-window-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(251, 254, 0, 0.3);
+}
+
+.post-window-author span,
+.page-window-author span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Window title */
+.post-window-title,
+.page-window-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Window content */
+.post-window-content,
+.page-window-content {
+  max-width: 680px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  html.window-mode .post-window,
+  html.window-mode .page-window {
+    flex-direction: column;
+  }
+
+  .post-window-cover,
+  .page-window-cover {
+    width: 100%;
+    min-height: auto;
+    height: 200px;
+    position: relative;
+  }
+
+  .post-window-main,
+  .page-window-main {
+    padding: 24px 20px 40px;
+  }
+
+  .post-window-title,
+  .page-window-title {
+    font-size: 22px;
+  }
+}
