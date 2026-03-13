@@ -567,14 +567,12 @@ main {
   }
 
   header .personal {
-    transform: scale(1.2);
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
-  header .tabs {
-    transform: scale(1.1);
-    right: 20px;
-    margin: 20px;
+  header .tabs .tab {
+    padding: 8px 28px;
+    font-size: 17px;
   }
 }
 
@@ -593,9 +591,6 @@ main {
     margin: 8px 10px 4px;
   }
 
-  header .personal .right {
-    width: calc(100% - 120px);
-  }
 
   header .tabs {
     position: relative;
