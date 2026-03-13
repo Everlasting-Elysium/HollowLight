@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="<%- url_for('/css/tag.css') %>">
+
+<%
+  var tagName = page.tag || '';
+  var posts   = page.posts.sort('date', -1);
+  var count   = posts.length || 0;
+%>
+
+<div class="tag-wrap">
+
+  <div class="tag-header">
+    <h1 class="tag-name"># <%= tagName %></h1>
+    <div class="tag-article-count"><span><%= count %></span> articles</div>
+  </div>
+
+  <div class="tag-articles">
+    <% posts.each(function (post) { %>
+    <a class="tag-article-card"
+       href="<%- url_for(post.path) %>"
+       onclick="event.preventDefault();if(typeof openWindow==='function'){openWindow('<%- url_for(post.path) %>')}else{window.location.href=this.href}">
+
+      <% if (post.headimg) { %>
+      <img class="tag-article-thumb"
+           src="<%- url_for(post.headimg) %>"
+           alt="" loading="lazy">
+      <% } else { %>
+      <div class="tag-article-thumb-placeholder">◆</div>
+      <% } %>
+
+      <div class="tag-article-info">
+        <div class="tag-article-title"><%= post.title || '无题' %></div>
+        <div class="tag-article-date"><%- date(post.date, 'YYYY-MM-DD') %></div>
+      </div>
+
+    </a>
+    <% }); %>
+  </div>
+
+</div>

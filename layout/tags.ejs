@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="<%- url_for('/css/tag.css') %>">
+
+<%
+  /* Collect all tags, sort by post count descending */
+  var allTags = [];
+  site.tags.each(function (tag) {
+    if (tag.length) allTags.push(tag);
+  });
+  allTags.sort(function (a, b) { return b.length - a.length; });
+
+  /* Min / max for font-size scaling */
+  var maxCount = 0, minCount = Infinity;
+  allTags.forEach(function (tag) {
+    if (tag.length > maxCount) maxCount = tag.length;
+    if (tag.length < minCount) minCount = tag.length;
+  });
+  var minFont = 14, maxFont = 28;
+%>
+
+<div class="tags-wrap">
+
+  <div class="tags-page-title">
+    TAGS &mdash; <span><%= allTags.length %></span> tags
+  </div>
+
+  <div class="tag-cloud">
+    <% allTags.forEach(function (tag) { %>
+    <%
+      var fontSize;
+      if (maxCount === minCount) {
+        fontSize = (minFont + maxFont) / 2;
+      } else {
+        fontSize = minFont + (tag.length - minCount) / (maxCount - minCount) * (maxFont - minFont);
+      }
+    %>
+    <a class="tag-cloud-item"
+       href="<%- url_for(tag.path) %>"
+       style="font-size:<%= Math.round(fontSize) %>px">
+      <%= tag.name %><span class="tag-cloud-count"><%= tag.length %></span>
+    </a>
+    <% }); %>
+  </div>
+
+</div>
