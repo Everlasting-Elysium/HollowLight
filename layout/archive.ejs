@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="<%- url_for('/css/archive.css') %>">
+
+<%
+  /* Group posts by year (descending), each year sorted by date descending */
+  var years = {};
+  var totalCount = 0;
+
+  page.posts.sort('date', -1).each(function (post) {
+    var y = date(post.date, 'YYYY');
+    if (!years[y]) years[y] = [];
+    years[y].push(post);
+    totalCount++;
+  });
+
+  var sortedYears = Object.keys(years).sort(function (a, b) {
+    return parseInt(b) - parseInt(a);
+  });
+%>
+
+<div class="archive-wrap">
+
+  <div class="archive-page-title">
+    ARCHIVE &mdash; <span><%= totalCount %></span> posts
+  </div>
+
+  <% sortedYears.forEach(function (year) { %>
+  <section class="archive-year-group">
+    <div class="archive-year"><%= year %></div>
+
+    <ul class="archive-list">
+      <% years[year].forEach(function (post) { %>
+      <li>
+        <a class="archive-item"
+           href="<%- url_for(post.path) %>"
+           onclick="event.preventDefault();if(typeof openWindow==='function'){openWindow('<%- url_for(post.path) %>')}else{window.location.href=this.href}">
+          <span class="archive-item-date"><%- date(post.date, 'MM-DD') %></span>
+          <span class="archive-item-line"></span>
+          <span class="archive-item-title"><%= post.title || '无题' %></span>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+  </section>
+  <% }); %>
+
+</div>
