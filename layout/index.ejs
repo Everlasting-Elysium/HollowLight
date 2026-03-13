@@ -1,3 +1,4 @@
+<% var defaultCover = url_for('/img/default-cover.svg'); %>
 <link rel="stylesheet" href="<%- url_for('/css/home.css') %>">
 
 <main class="home">
@@ -8,9 +9,9 @@
         <a href="<%- url_for(post.path) %>" class="card pin">
           <img
             class="headimg"
-            src="<%= post.headimg || '/img/default-cover.svg' %>"
+            src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
             alt="<%= post.title || '' %>"
-            onerror="this.src='/img/default-cover.svg'"
+            onerror="this.onerror=null;this.src='<%- defaultCover %>'"
           >
           <div class="post">
             <h2 class="title">【置顶】<%= post.title || '' %></h2>
@@ -33,9 +34,9 @@
         <a href="<%- url_for(post.path) %>" class="card">
           <img
             class="headimg"
-            src="<%= post.headimg || '/img/default-cover.svg' %>"
+            src="<%- url_for(post.headimg || '/img/default-cover.svg') %>"
             alt="<%= post.title || '' %>"
-            onerror="this.src='/img/default-cover.svg'"
+            onerror="this.onerror=null;this.src='<%- defaultCover %>'"
           >
           <div class="post">
             <h2 class="title"><%= post.title || '' %></h2>
