@@ -252,11 +252,11 @@ header {
 header .personal {
   background: rgb(20, 20, 20);
   background: linear-gradient(var(--hl-card-gradient-start), var(--hl-card-gradient-end));
-  height: 60px;
+  height: 46px;
   min-width: 0;
   width: max-content;
-  max-width: calc(100vw - 20px);
-  margin: 10px;
+  max-width: 50%;
+  margin: 0 0 0 10px;
   border-radius: var(--hl-radius-pill);
   box-shadow:
     inset 0 2px 2px 1px var(--hl-inset-light),
@@ -266,8 +266,8 @@ header .personal {
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  gap: 8px;
-  padding-right: 12px;
+  gap: 6px;
+  padding-right: 10px;
 }
 
 header .personal .avatar-link {
@@ -279,11 +279,9 @@ header .personal .avatar-link {
 
 header .personal img.avatar {
   border-radius: 100%;
-  height: 40px;
-  width: 40px;
-  margin: 10px;
-  margin-left: 10px;
-  margin-right: 0;
+  height: 28px;
+  width: 28px;
+  margin: 0 0 0 8px;
   border: 1.5px solid rgba(255,255,255,0.25);
   object-fit: cover;
   flex-shrink: 0;
@@ -298,12 +296,12 @@ header .personal .avatar-link:hover img.avatar {
 header .personal .url-bar {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(0, 0, 0, 0.45);
   border-radius: var(--hl-radius-pill);
-  padding: 5px 14px;
-  min-width: 180px;
-  max-width: 420px;
+  padding: 4px 10px;
+  min-width: 120px;
+  max-width: 340px;
   cursor: default;
   overflow: hidden;
 }
@@ -353,24 +351,23 @@ header .tabs {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  right: 10px;
-  top: 0;
+  margin-left: auto;
+  margin-right: 10px;
   background-color: var(--hl-tab-bg);
-  padding: 5px;
-  margin: 15px;
+  padding: 4px;
   box-shadow: inset 0 0 2px 4px var(--hl-tab-shadow);
   border-radius: var(--hl-radius-tab);
-  /* Subtle grid texture */
   background-image:
     linear-gradient(var(--hl-black) 8px, transparent 0),
     linear-gradient(90deg, #0f0f0f 2px, transparent 0);
   background-size: 10px 10px;
+  flex-shrink: 1;
+  overflow: hidden;
 }
 
 header .tabs .tab {
-  padding: 10px 40px;
-  font-size: 20px;
+  padding: 6px 20px;
+  font-size: 15px;
   font-weight: bold;
   font-style: italic;
   position: relative;
