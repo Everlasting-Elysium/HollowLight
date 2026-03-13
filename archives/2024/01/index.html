@@ -183,10 +183,13 @@
     };
 
     /* ---- Window popup controls (globally callable) ---- */
+    var _windowPrevUrl = null;
+
     window.openWindow = function(url) {
       var win   = document.getElementById('hl-window');
       var frame = document.getElementById('hl-window-frame');
       if (!win || !frame) return;
+      _windowPrevUrl = window.location.href;   // remember where we came from
       var sep = url.indexOf('?') === -1 ? '?' : '&';
       frame.src = url + sep + 'window=true';
       history.pushState({ hollowWindow: true }, '', url);
@@ -199,7 +202,11 @@
       if (!win) return;
       win.style.display = 'none';
       if (frame) frame.src = '';
-      if (!fromPopstate) history.back();
+      if (!fromPopstate) {
+        // Replace article URL with original page URL — no popstate, no navigation side-effects
+        history.replaceState(null, '', _windowPrevUrl || window.location.pathname);
+      }
+      _windowPrevUrl = null;
     };
 
     /* Close window on Escape key */

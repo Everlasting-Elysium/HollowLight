@@ -19,7 +19,7 @@
 <meta property="og:description" content="这是 HollowLight —— 一个深度致敬《绝区零》「绳网」论坛 UI 的 Hexo 主题。纯黑背景、荧光黄强调色、标志性右下角切角，让你的博客像赛博朋克世界里的情报中转站。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-03-13T18:29:21.599Z">
+<meta property="article:modified_time" content="2026-03-13T18:40:35.396Z">
 <meta property="article:author" content="传奇绳匠">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="主题">
@@ -398,10 +398,13 @@
     };
 
     /* ---- Window popup controls (globally callable) ---- */
+    var _windowPrevUrl = null;
+
     window.openWindow = function(url) {
       var win   = document.getElementById('hl-window');
       var frame = document.getElementById('hl-window-frame');
       if (!win || !frame) return;
+      _windowPrevUrl = window.location.href;   // remember where we came from
       var sep = url.indexOf('?') === -1 ? '?' : '&';
       frame.src = url + sep + 'window=true';
       history.pushState({ hollowWindow: true }, '', url);
@@ -414,7 +417,11 @@
       if (!win) return;
       win.style.display = 'none';
       if (frame) frame.src = '';
-      if (!fromPopstate) history.back();
+      if (!fromPopstate) {
+        // Replace article URL with original page URL — no popstate, no navigation side-effects
+        history.replaceState(null, '', _windowPrevUrl || window.location.pathname);
+      }
+      _windowPrevUrl = null;
     };
 
     /* Close window on Escape key */
