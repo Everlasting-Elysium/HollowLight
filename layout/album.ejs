@@ -1,0 +1,129 @@
+<% const albumData = site.data.album || { albums: [] } %>
+<% const albums = albumData.albums || [] %>
+
+<link rel="stylesheet" href="<%- url_for('/css/album.css') %>">
+
+<div class="album-page">
+  <!-- Starfield background layer -->
+  <div class="album-starfield" aria-hidden="true">
+    <div class="album-starfield__layer album-starfield__layer--1"></div>
+    <div class="album-starfield__layer album-starfield__layer--2"></div>
+    <div class="album-starfield__layer album-starfield__layer--3"></div>
+  </div>
+
+  <!-- Page header -->
+  <header class="album-header">
+    <h1 class="album-header__title">
+      <span class="album-header__glyph">✦</span>
+      相册
+      <span class="album-header__glyph">✦</span>
+    </h1>
+    <p class="album-header__sub">流光忆庭 · 星海拾影</p>
+  </header>
+
+  <% if (albums.length > 0) { %>
+  <!-- Album tab selector -->
+  <nav class="album-tabs" role="tablist" aria-label="相册选择">
+    <div class="album-tabs__track">
+      <% albums.forEach(function(album, idx) { %>
+      <button
+        class="album-tab<%= idx === 0 ? ' album-tab--active' : '' %>"
+        role="tab"
+        aria-selected="<%= idx === 0 ? 'true' : 'false' %>"
+        aria-controls="album-panel-<%= idx %>"
+        data-album-index="<%= idx %>"
+      >
+        <span class="album-tab__icon">◆</span>
+        <span class="album-tab__name"><%= album.name %></span>
+        <span class="album-tab__count"><%= (album.photos || []).length %></span>
+      </button>
+      <% }) %>
+    </div>
+  </nav>
+
+  <!-- Album panels -->
+  <div class="album-panels">
+    <% albums.forEach(function(album, albumIdx) { %>
+    <div
+      class="album-panel<%= albumIdx === 0 ? ' album-panel--active' : '' %>"
+      id="album-panel-<%= albumIdx %>"
+      role="tabpanel"
+      data-album-index="<%= albumIdx %>"
+    >
+      <div class="album-grid">
+        <% (album.photos || []).forEach(function(photo, photoIdx) { %>
+        <article
+          class="album-card"
+          data-album="<%= albumIdx %>"
+          data-photo="<%= photoIdx %>"
+          tabindex="0"
+          role="button"
+          aria-label="查看图片: <%= photo.title || '图片 ' + (photoIdx + 1) %>"
+        >
+          <div class="album-card__frame">
+            <img
+              class="album-card__img"
+              src="<%- url_for(photo.src) %>"
+              alt="<%= photo.title || '' %>"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.parentElement.classList.add('album-card__frame--error')"
+            />
+            <span class="album-card__index"><%= String(photoIdx + 1).padStart(2, '0') %></span>
+            <div class="album-card__glow" aria-hidden="true"></div>
+          </div>
+          <div class="album-card__overlay">
+            <h3 class="album-card__title"><%= photo.title || '未命名' %></h3>
+            <% if (photo.desc) { %>
+            <p class="album-card__desc"><%= photo.desc %></p>
+            <% } %>
+          </div>
+        </article>
+        <% }) %>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% } else { %>
+  <div class="album-empty">
+    <div class="album-empty__icon">✦</div>
+    <p class="album-empty__text">暂无相册数据</p>
+    <p class="album-empty__hint">请在 source/_data/album.yml 中添加相册</p>
+  </div>
+  <% } %>
+
+  <!-- Lightbox -->
+  <div class="album-lightbox" id="albumLightbox" role="dialog" aria-modal="true" aria-label="图片预览" hidden>
+    <div class="album-lightbox__backdrop"></div>
+    <div class="album-lightbox__container">
+      <button class="album-lightbox__close" aria-label="关闭" title="关闭 (Esc)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <button class="album-lightbox__nav album-lightbox__nav--prev" aria-label="上一张 (←)" title="上一张">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="album-lightbox__stage">
+        <img class="album-lightbox__img" src="" alt="" />
+      </div>
+      <button class="album-lightbox__nav album-lightbox__nav--next" aria-label="下一张 (→)" title="下一张">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div class="album-lightbox__info">
+        <h3 class="album-lightbox__title"></h3>
+        <p class="album-lightbox__desc"></p>
+        <span class="album-lightbox__counter"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Inject album data for JS -->
+<script>
+  window.__ALBUM_DATA__ = <%- JSON.stringify(albums) %>;
+</script>
+<script src="<%- url_for('/js/album.js') %>"></script>
