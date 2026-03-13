@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="<%- url_for('/css/home.css') %>">
+
+<main class="home">
+  <div class="list">
+    <%/* ---- Pinned posts first ---- */%>
+    <% site.posts.each(function(post) { %>
+      <% if (post.pin) { %>
+        <a href="<%- url_for(post.path) %>" class="card pin">
+          <img
+            class="headimg"
+            src="<%= post.headimg || '/img/default-cover.svg' %>"
+            alt="<%= post.title || '' %>"
+            onerror="this.src='/img/default-cover.svg'"
+          >
+          <div class="post">
+            <h2 class="title">【置顶】<%= post.title || '' %></h2>
+            <p class="excerpt">
+              <%- strip_html(
+                post.excerpt
+                || post.description
+                || truncate(strip_html(post.content || ''), {length: 80})
+                || ''
+              ) %>
+            </p>
+          </div>
+        </a>
+      <% } %>
+    <% }) %>
+
+    <%/* ---- Regular posts ---- */%>
+    <% site.posts.each(function(post) { %>
+      <% if (!post.pin) { %>
+        <a href="<%- url_for(post.path) %>" class="card">
+          <img
+            class="headimg"
+            src="<%= post.headimg || '/img/default-cover.svg' %>"
+            alt="<%= post.title || '' %>"
+            onerror="this.src='/img/default-cover.svg'"
+          >
+          <div class="post">
+            <h2 class="title"><%= post.title || '' %></h2>
+            <p class="excerpt">
+              <%- strip_html(
+                post.excerpt
+                || post.description
+                || truncate(strip_html(post.content || ''), {length: 80})
+                || ''
+              ) %>
+            </p>
+          </div>
+        </a>
+      <% } %>
+    <% }) %>
+  </div>
+</main>
+
+<script src="<%- url_for('/js/waterfall.js') %>"></script>
