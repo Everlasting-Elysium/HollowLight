@@ -1,0 +1,102 @@
+/* ==========================================================
+   HollowLight — Home / Waterfall Grid
+   InterKnot-inspired card layout for article listing
+   ========================================================== */
+
+/* ---- Main Container ---- */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 30px);
+  margin-inline: 15px;
+  overflow: hidden;
+  position: relative;
+  min-height: 60vh;
+}
+
+.home .list {
+  position: relative;
+  width: max-content;
+  height: max-content;
+}
+
+/* ---- Card ---- */
+
+.home .card {
+  width: 256px;
+  border-radius: var(--radius-card);
+  border-bottom-right-radius: 0;
+  border: 3px solid #000;
+  background: var(--hl-card);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: top 0.5s ease, left 0.5s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.home .card:hover {
+  animation: card-border-glow 1s linear 0.3s infinite alternate;
+  border-color: var(--border-accent);
+}
+
+/* ---- Pinned Card ---- */
+
+.home .card.pin {
+  border-color: var(--hl-blue);
+}
+
+.home .card.pin:hover {
+  animation: card-border-glow-pin 1s linear 0.3s infinite alternate;
+  border-color: var(--border-accent);
+}
+
+/* ---- Cover Image ---- */
+
+.home .card .headimg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- Content Area ---- */
+
+.home .card .post {
+  padding: 15px;
+}
+
+.home .card .title {
+  color: var(--hl-text);
+  font-size: 15px;
+  font-weight: bold;
+  margin: 3px 0;
+  line-height: 1.4;
+}
+
+.home .card .excerpt {
+  color: var(--hl-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 6px 0 0;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* ---- Keyframes ---- */
+
+@keyframes card-border-glow {
+  from { border-color: #000; }
+  to   { border-color: var(--border-accent); }
+}
+
+@keyframes card-border-glow-pin {
+  from { border-color: var(--hl-blue); }
+  to   { border-color: var(--border-accent); }
+}
