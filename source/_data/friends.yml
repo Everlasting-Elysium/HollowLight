@@ -1,0 +1,15 @@
+friends:
+  - name: "示例博客 A"
+    url: https://example.com
+    avatar: https://api.dicebear.com/7.x/bottts/svg?seed=alice
+    desc: "这是一个很棒的技术博客，分享前端开发的点点滴滴。"
+
+  - name: "示例博客 B"
+    url: https://example.org
+    avatar: https://api.dicebear.com/7.x/bottts/svg?seed=bob
+    desc: "记录生活，记录美好，偶尔写写代码。"
+
+  - name: "示例博客 C"
+    url: https://example.net
+    avatar: https://api.dicebear.com/7.x/bottts/svg?seed=carol
+    desc: "专注游戏与二次元的个人站点。"
