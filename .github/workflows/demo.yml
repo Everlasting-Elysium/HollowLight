@@ -1,0 +1,62 @@
+name: Build & Deploy Demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout theme repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Hexo CLI
+        run: npm install -g hexo-cli
+
+      - name: Initialize demo Hexo site
+        run: hexo init /tmp/demo
+
+      - name: Install Hexo dependencies
+        working-directory: /tmp/demo
+        run: npm install
+
+      - name: Copy theme into demo site
+        run: |
+          mkdir -p /tmp/demo/themes/HollowLight
+          for item in _config.yml layout source scripts; do
+            [ -e "$GITHUB_WORKSPACE/$item" ] && cp -r "$GITHUB_WORKSPACE/$item" /tmp/demo/themes/HollowLight/
+          done
+
+      - name: Copy demo content into site
+        run: |
+          cp "$GITHUB_WORKSPACE/demo/_config.yml" /tmp/demo/_config.yml
+          cp -rf "$GITHUB_WORKSPACE/demo/source/." /tmp/demo/source/
+          rm -f /tmp/demo/source/_posts/hello-world.md
+
+      - name: Set site URL from repo info
+        run: |
+          OWNER=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f1)
+          REPO=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+          sed -i "s|__URL__|https://${OWNER}.github.io/${REPO}|g" /tmp/demo/_config.yml
+          sed -i "s|__ROOT__|/${REPO}/|g" /tmp/demo/_config.yml
+
+      - name: Generate static site
+        working-directory: /tmp/demo
+        run: hexo generate
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/demo/public
