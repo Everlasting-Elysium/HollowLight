@@ -34,7 +34,7 @@
   <%- partial('_partials/header') %>
 
   <!-- Main Content -->
-  <main>
+  <main<%= (page.layout === 'index' && theme.curtain && theme.curtain.enable) ? ' class="has-curtain"' : '' %>>
     <%- body %>
   </main>
 

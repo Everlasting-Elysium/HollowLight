@@ -491,6 +491,11 @@ body > main {
   min-height: calc(100vh - var(--hl-header-height));
 }
 
+/* ---- Home page with curtain: no top margin (curtain fills from top) ---- */
+body > main.has-curtain {
+  margin-top: 0;
+}
+
 
 /* ---- Card System ---- */
 .card {

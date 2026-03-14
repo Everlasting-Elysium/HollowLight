@@ -9,7 +9,9 @@
   function syncHeader() {
     var h = curtain.offsetHeight || window.innerHeight;
     if (header) {
-      header.classList.toggle('header--curtain-hidden', window.scrollY < h * 0.5);
+      // Also show header when near the bottom of the page (short post lists)
+      var nearBottom = (window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 60;
+      header.classList.toggle('header--curtain-hidden', window.scrollY < h * 0.5 && !nearBottom);
     }
   }
   window.addEventListener('scroll', syncHeader, { passive: true });
