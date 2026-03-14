@@ -59,15 +59,62 @@
   text-transform: uppercase;
 }
 
+/* --- Sections wrapper --- */
+.friends-sections {
+  padding-bottom: 8px;
+}
+
+/* --- Individual Section --- */
+.friends-section {
+  max-width: 1200px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+
+/* Section label bar */
+.friends-section__header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 0 0 12px 14px;
+  border-bottom: 1px solid rgba(251, 254, 0, 0.08);
+  position: relative;
+}
+
+.friends-section__header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 14px;
+  width: 3px;
+  background: #fbfe00;
+  border-radius: 2px;
+}
+
+.friends-section__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.friends-section__subtitle {
+  font-size: 0.68rem;
+  color: #555;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
 /* --- Friends Grid --- */
 .friends-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 20px;
   justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 
 /* --- Friend Card --- */
@@ -189,6 +236,18 @@
 
 .friend-card:hover .friend-card__avatar {
   transform: scale(1.08);
+}
+
+/* Emoji / text icon fallback (no avatar) */
+.friend-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  line-height: 1;
+  user-select: none;
 }
 
 /* --- Name --- */
@@ -315,10 +374,14 @@
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  .friends-section {
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
+
   .friends-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 14px;
-    padding: 0 16px;
   }
 
   .friends-header {
@@ -344,10 +407,13 @@
 }
 
 @media (max-width: 480px) {
+  .friends-section {
+    padding: 0 12px;
+  }
+
   .friends-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding: 0 12px;
   }
 
   .friend-card {

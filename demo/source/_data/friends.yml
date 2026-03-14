@@ -1,30 +1,80 @@
-friends:
-  - name: Hexo
-    url: https://hexo.io
-    avatar: https://hexo.io/icon/favicon-196x196.png
-    description: 快速、简洁且高效的博客框架
+sections:
 
-  - name: GitHub
-    url: https://github.com
-    avatar: https://github.githubassets.com/favicons/favicon.svg
-    description: 全球最大的代码托管平台
+  - title: 伙伴
+    subtitle: INTER-KNOT LINKS
+    items:
+      - name: Hexo
+        url: https://hexo.io
+        avatar: https://hexo.io/icon/favicon-196x196.png
+        desc: 快速、简洁且高效的博客框架
 
-  - name: 绝区零
-    url: https://zzz.hoyoverse.com
-    avatar: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=80&q=80
-    description: 米哈游出品的都市动作 RPG
+      - name: GitHub
+        url: https://github.com
+        avatar: https://github.githubassets.com/favicons/favicon.svg
+        desc: 全球最大的代码托管平台
 
-  - name: 崩坏：星穹铁道
-    url: https://sr.mihoyo.com
-    avatar: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=80&q=80
-    description: 开拓银河、探索宇宙
+      - name: 绝区零
+        url: https://zzz.hoyoverse.com
+        avatar: https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=80&q=80
+        desc: 米哈游出品的都市动作 RPG
 
-  - name: 示例博客 A
-    url: https://example.com
-    avatar: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&q=80
-    description: 一个热爱写作的朋友
+      - name: 崩坏：星穹铁道
+        url: https://sr.mihoyo.com
+        avatar: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=80&q=80
+        desc: 开拓银河、探索宇宙
 
-  - name: 示例博客 B
-    url: https://example.com
-    avatar: https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&q=80
-    description: 关注技术与生活的博主
+      - name: 示例博客 A
+        url: https://example.com
+        avatar: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&q=80
+        desc: 一个热爱写作的朋友
+
+      - name: 示例博客 B
+        url: https://example.com
+        avatar: https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&q=80
+        desc: 关注技术与生活的博主
+
+  - title: 工具
+    subtitle: UTILITIES & TOOLS
+    items:
+      - name: VS Code
+        url: https://code.visualstudio.com
+        avatar: https://code.visualstudio.com/favicon.ico
+        desc: 微软出品的轻量级代码编辑器
+
+      - name: Figma
+        url: https://figma.com
+        avatar: https://static.figma.com/app/icon/1/favicon.ico
+        desc: 协作式 UI 设计与原型工具
+
+      - name: Excalidraw
+        url: https://excalidraw.com
+        icon: ✏️
+        desc: 手绘风格在线白板，快速草图利器
+
+      - name: Ray.so
+        url: https://ray.so
+        icon: 📸
+        desc: 生成美观的代码截图分享图片
+
+  - title: 网站推荐
+    subtitle: COOL WEBSITES
+    items:
+      - name: MDN Web Docs
+        url: https://developer.mozilla.org
+        avatar: https://developer.mozilla.org/favicon-192x192.png
+        desc: 最权威的 Web 技术参考文档
+
+      - name: Can I Use
+        url: https://caniuse.com
+        icon: 🌐
+        desc: 查询浏览器 API 与 CSS 兼容性
+
+      - name: Coolors
+        url: https://coolors.co
+        icon: 🎨
+        desc: 快速生成与探索配色方案
+
+      - name: Hoppscotch
+        url: https://hoppscotch.io
+        icon: 🚀
+        desc: 开源轻量的 API 调试工具

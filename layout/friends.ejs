@@ -1,9 +1,29 @@
-<% const friendsData = site.data.friends || { friends: [] } %>
-<% const friends = friendsData.friends || [] %>
+<%
+  var rawData = site.data.friends || {};
+  var sections;
+
+  if (rawData.sections && rawData.sections.length) {
+    /* New multi-section format */
+    sections = rawData.sections;
+  } else if (rawData.friends && rawData.friends.length) {
+    /* Legacy format: wrap into a single section */
+    sections = [{ title: '伙伴', subtitle: 'INTER-KNOT LINKS', items: rawData.friends }];
+  } else {
+    sections = [];
+  }
+
+  /* Normalize: accept both `desc` and `description` field names */
+  sections.forEach(function(sec) {
+    (sec.items || []).forEach(function(item) {
+      if (!item.desc && item.description) item.desc = item.description;
+    });
+  });
+%>
 
 <link rel="stylesheet" href="<%- url_for('/css/friends.css') %>">
 
 <div class="friends-page">
+
   <!-- Page header (ZZZ style) -->
   <header class="friends-header">
     <h1 class="friends-header__title">伙伴</h1>
@@ -13,47 +33,67 @@
     <p class="friends-header__sub">INTER-KNOT LINKS</p>
   </header>
 
-  <% if (friends.length > 0) { %>
-  <!-- Friends grid -->
-  <section class="friends-grid">
-    <% friends.forEach(function(friend, idx) { %>
-    <a
-      class="friend-card"
-      href="<%= friend.url %>"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="<%= friend.name %>"
-      style="animation-delay: <%= idx * 60 %>ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="<%= friend.avatar %>"
-          alt="<%= friend.name %>"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.classList.add('friend-card__avatar--error')"
-        />
+  <% if (sections.length > 0) { %>
+  <div class="friends-sections">
+    <% sections.forEach(function(section) { %>
+    <section class="friends-section">
+
+      <!-- Section label -->
+      <div class="friends-section__header">
+        <h2 class="friends-section__title"><%= section.title %></h2>
+        <% if (section.subtitle) { %>
+        <span class="friends-section__subtitle"><%= section.subtitle %></span>
+        <% } %>
       </div>
-      <h3 class="friend-card__name"><%= friend.name %></h3>
-      <% if (friend.desc) { %>
-      <p class="friend-card__desc"><%= friend.desc %></p>
-      <% } %>
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        <%= (friend.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '') %>
-      </span>
-    </a>
+
+      <!-- Cards grid -->
+      <div class="friends-grid">
+        <% (section.items || []).forEach(function(item, idx) { %>
+        <a
+          class="friend-card"
+          href="<%= item.url %>"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="<%= item.name %>"
+          style="animation-delay: <%= idx * 60 %>ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            <% if (item.avatar) { %>
+            <img
+              class="friend-card__avatar"
+              src="<%= item.avatar %>"
+              alt="<%= item.name %>"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.classList.add('friend-card__avatar--error')"
+            />
+            <% } else { %>
+            <span class="friend-card__icon"><%= item.icon || '⬡' %></span>
+            <% } %>
+          </div>
+          <h3 class="friend-card__name"><%= item.name %></h3>
+          <% if (item.desc) { %>
+          <p class="friend-card__desc"><%= item.desc %></p>
+          <% } %>
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            <%= (item.url || '').replace(/^https?:\/\//, '').replace(/\/$/, '') %>
+          </span>
+        </a>
+        <% }) %>
+      </div>
+
+    </section>
     <% }) %>
-  </section>
+  </div>
   <% } else { %>
   <div class="friends-empty">
     <div class="friends-empty__icon">⬡</div>
-    <p class="friends-empty__text">暂无伙伴数据</p>
-    <p class="friends-empty__hint">请在 source/_data/friends.yml 中添加友链</p>
+    <p class="friends-empty__text">暂无数据</p>
+    <p class="friends-empty__hint">请在 source/_data/friends.yml 中添加内容</p>
   </div>
   <% } %>
 
@@ -64,4 +104,5 @@
       <p class="friends-footer__desc">欢迎交换友链，请在评论区或通过社交链接联系我</p>
     </div>
   </footer>
+
 </div>
