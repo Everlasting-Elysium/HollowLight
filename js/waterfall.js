@@ -34,10 +34,12 @@
     if (!cards.length) return;
 
     var pageWidth = main.clientWidth;
-    var colNum    = Math.max(1, Math.floor(pageWidth / COL_UNIT));
+    // n columns need: n*CARD_WIDTH + (n-1)*GAP = n*COL_UNIT - GAP
+    // Trailing gap is not required — add GAP back before flooring to fit the extra column
+    var colNum = Math.max(1, Math.floor((pageWidth + GAP) / COL_UNIT));
 
-    // Center the grid by setting explicit width
-    list.style.width = colNum * COL_UNIT + 'px';
+    // List width = cards + inter-card gaps only (no trailing gap)
+    list.style.width = (colNum * COL_UNIT - GAP) + 'px';
 
     var colHeights = [];
     for (var c = 0; c < colNum; c++) colHeights[c] = 0;
