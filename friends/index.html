@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="HollowLight Demo">
 <meta property="og:description" content="A Hexo theme inspired by the Zenless Zone Zero InterKnot forum UI">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-14T04:37:24.447Z">
-<meta property="article:modified_time" content="2026-03-14T04:37:24.447Z">
+<meta property="article:published_time" content="2026-03-14T05:00:30.562Z">
+<meta property="article:modified_time" content="2026-03-14T05:00:30.562Z">
 <meta property="article:author" content="传奇绳匠">
 <meta property="article:tag" content="hexo,theme,zzz,interknot,hollowlight">
 <meta name="twitter:card" content="summary">
@@ -118,10 +118,10 @@
   <main>
     
 
-
 <link rel="stylesheet" href="/HollowLight/css/friends.css">
 
 <div class="friends-page">
+
   <!-- Page header (ZZZ style) -->
   <header class="friends-header">
     <h1 class="friends-header__title">伙伴</h1>
@@ -132,184 +132,492 @@
   </header>
 
   
-  <!-- Friends grid -->
-  <section class="friends-grid">
+  <div class="friends-sections">
     
-    <a
-      class="friend-card"
-      href="https://hexo.io"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Hexo"
-      style="animation-delay: 0ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://hexo.io/icon/favicon-196x196.png"
-          alt="Hexo"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+    <section class="friends-section">
+
+      <!-- Section label -->
+      <div class="friends-section__header">
+        <h2 class="friends-section__title">伙伴</h2>
+        
+        <span class="friends-section__subtitle">INTER-KNOT LINKS</span>
+        
       </div>
-      <h3 class="friend-card__name">Hexo</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        hexo.io
-      </span>
-    </a>
-    
-    <a
-      class="friend-card"
-      href="https://github.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="GitHub"
-      style="animation-delay: 60ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://github.githubassets.com/favicons/favicon.svg"
-          alt="GitHub"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+
+      <!-- Cards grid -->
+      <div class="friends-grid">
+        
+        <a
+          class="friend-card"
+          href="https://hexo.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Hexo"
+          style="animation-delay: 0ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://hexo.io/icon/favicon-196x196.png"
+              alt="Hexo"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">Hexo</h3>
+          
+          <p class="friend-card__desc">快速、简洁且高效的博客框架</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            hexo.io
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="GitHub"
+          style="animation-delay: 60ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://github.githubassets.com/favicons/favicon.svg"
+              alt="GitHub"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">GitHub</h3>
+          
+          <p class="friend-card__desc">全球最大的代码托管平台</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            github.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://zzz.hoyoverse.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="绝区零"
+          style="animation-delay: 120ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=80&amp;q=80"
+              alt="绝区零"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">绝区零</h3>
+          
+          <p class="friend-card__desc">米哈游出品的都市动作 RPG</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            zzz.hoyoverse.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://sr.mihoyo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="崩坏：星穹铁道"
+          style="animation-delay: 180ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=80&amp;q=80"
+              alt="崩坏：星穹铁道"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">崩坏：星穹铁道</h3>
+          
+          <p class="friend-card__desc">开拓银河、探索宇宙</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            sr.mihoyo.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://example.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="示例博客 A"
+          style="animation-delay: 240ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&amp;q=80"
+              alt="示例博客 A"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">示例博客 A</h3>
+          
+          <p class="friend-card__desc">一个热爱写作的朋友</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            example.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://example.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="示例博客 B"
+          style="animation-delay: 300ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&amp;q=80"
+              alt="示例博客 B"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">示例博客 B</h3>
+          
+          <p class="friend-card__desc">关注技术与生活的博主</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            example.com
+          </span>
+        </a>
+        
       </div>
-      <h3 class="friend-card__name">GitHub</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        github.com
-      </span>
-    </a>
+
+    </section>
     
-    <a
-      class="friend-card"
-      href="https://zzz.hoyoverse.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="绝区零"
-      style="animation-delay: 120ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://images.unsplash.com/photo-1535223289429-462dc98e5176?w=80&amp;q=80"
-          alt="绝区零"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+    <section class="friends-section">
+
+      <!-- Section label -->
+      <div class="friends-section__header">
+        <h2 class="friends-section__title">工具</h2>
+        
+        <span class="friends-section__subtitle">UTILITIES &amp; TOOLS</span>
+        
       </div>
-      <h3 class="friend-card__name">绝区零</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        zzz.hoyoverse.com
-      </span>
-    </a>
-    
-    <a
-      class="friend-card"
-      href="https://sr.mihoyo.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="崩坏：星穹铁道"
-      style="animation-delay: 180ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=80&amp;q=80"
-          alt="崩坏：星穹铁道"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+
+      <!-- Cards grid -->
+      <div class="friends-grid">
+        
+        <a
+          class="friend-card"
+          href="https://code.visualstudio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="VS Code"
+          style="animation-delay: 0ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://code.visualstudio.com/favicon.ico"
+              alt="VS Code"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">VS Code</h3>
+          
+          <p class="friend-card__desc">微软出品的轻量级代码编辑器</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            code.visualstudio.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://figma.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Figma"
+          style="animation-delay: 60ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://static.figma.com/app/icon/1/favicon.ico"
+              alt="Figma"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">Figma</h3>
+          
+          <p class="friend-card__desc">协作式 UI 设计与原型工具</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            figma.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://excalidraw.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Excalidraw"
+          style="animation-delay: 120ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <span class="friend-card__icon">✏️</span>
+            
+          </div>
+          <h3 class="friend-card__name">Excalidraw</h3>
+          
+          <p class="friend-card__desc">手绘风格在线白板，快速草图利器</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            excalidraw.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://ray.so"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ray.so"
+          style="animation-delay: 180ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <span class="friend-card__icon">📸</span>
+            
+          </div>
+          <h3 class="friend-card__name">Ray.so</h3>
+          
+          <p class="friend-card__desc">生成美观的代码截图分享图片</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            ray.so
+          </span>
+        </a>
+        
       </div>
-      <h3 class="friend-card__name">崩坏：星穹铁道</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        sr.mihoyo.com
-      </span>
-    </a>
+
+    </section>
     
-    <a
-      class="friend-card"
-      href="https://example.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="示例博客 A"
-      style="animation-delay: 240ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&amp;q=80"
-          alt="示例博客 A"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+    <section class="friends-section">
+
+      <!-- Section label -->
+      <div class="friends-section__header">
+        <h2 class="friends-section__title">网站推荐</h2>
+        
+        <span class="friends-section__subtitle">COOL WEBSITES</span>
+        
       </div>
-      <h3 class="friend-card__name">示例博客 A</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        example.com
-      </span>
-    </a>
-    
-    <a
-      class="friend-card"
-      href="https://example.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="示例博客 B"
-      style="animation-delay: 300ms"
-    >
-      <div class="friend-card__avatar-wrap">
-        <img
-          class="friend-card__avatar"
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&amp;q=80"
-          alt="示例博客 B"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
-        />
+
+      <!-- Cards grid -->
+      <div class="friends-grid">
+        
+        <a
+          class="friend-card"
+          href="https://developer.mozilla.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="MDN Web Docs"
+          style="animation-delay: 0ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <img
+              class="friend-card__avatar"
+              src="https://developer.mozilla.org/favicon-192x192.png"
+              alt="MDN Web Docs"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg';this.classList.add('friend-card__avatar--error')"
+            />
+            
+          </div>
+          <h3 class="friend-card__name">MDN Web Docs</h3>
+          
+          <p class="friend-card__desc">最权威的 Web 技术参考文档</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            developer.mozilla.org
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://caniuse.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Can I Use"
+          style="animation-delay: 60ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <span class="friend-card__icon">🌐</span>
+            
+          </div>
+          <h3 class="friend-card__name">Can I Use</h3>
+          
+          <p class="friend-card__desc">查询浏览器 API 与 CSS 兼容性</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            caniuse.com
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://coolors.co"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Coolors"
+          style="animation-delay: 120ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <span class="friend-card__icon">🎨</span>
+            
+          </div>
+          <h3 class="friend-card__name">Coolors</h3>
+          
+          <p class="friend-card__desc">快速生成与探索配色方案</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            coolors.co
+          </span>
+        </a>
+        
+        <a
+          class="friend-card"
+          href="https://hoppscotch.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Hoppscotch"
+          style="animation-delay: 180ms"
+        >
+          <div class="friend-card__avatar-wrap">
+            
+            <span class="friend-card__icon">🚀</span>
+            
+          </div>
+          <h3 class="friend-card__name">Hoppscotch</h3>
+          
+          <p class="friend-card__desc">开源轻量的 API 调试工具</p>
+          
+          <span class="friend-card__url">
+            <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            hoppscotch.io
+          </span>
+        </a>
+        
       </div>
-      <h3 class="friend-card__name">示例博客 B</h3>
-      
-      <span class="friend-card__url">
-        <svg class="friend-card__link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-        example.com
-      </span>
-    </a>
+
+    </section>
     
-  </section>
+  </div>
   
 
   <!-- Apply section -->
@@ -319,6 +627,7 @@
       <p class="friends-footer__desc">欢迎交换友链，请在评论区或通过社交链接联系我</p>
     </div>
   </footer>
+
 </div>
 
   </main>
