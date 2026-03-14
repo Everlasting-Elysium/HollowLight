@@ -77,9 +77,10 @@
             <img
               class="album-card__img"
               src="<%- url_for(thumbSrc(photo)) %>"
+              data-original="<%- url_for(photo.url || photo.src || '') %>"
               alt="<%= photo.alt || photo.title || '' %>"
               loading="lazy"
-              onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.parentElement.classList.add('album-card__frame--error')"
+              onerror="if(!this.dataset.fell){this.dataset.fell='1';this.src=this.dataset.original}else{this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.parentElement.classList.add('album-card__frame--error')}"
             />
             <div class="album-card__glow" aria-hidden="true"></div>
           </div>
