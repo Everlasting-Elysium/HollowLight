@@ -131,7 +131,13 @@
       lbImg.src = '/img/default-cover.svg'
     }
     lbImg.src = src
-    lbImg.alt = photo.title || ''
+    lbImg.alt = photo.title || photo.alt || ''
+
+    // Click-to-link: store target in data attr, toggle pointer cursor
+    var link = photo.link || ''
+    lbImg.dataset.link = link
+    lbImg.style.cursor = link ? 'pointer' : 'default'
+    lbImg.title = link ? '点击查看原图' : ''
 
     lbTitle.textContent = photo.title || photo.alt || '未命名'
     lbDesc.textContent = photo.desc || ''
@@ -175,6 +181,15 @@
 
   // Backdrop click to close
   lbBackdrop.addEventListener('click', closeLightbox)
+
+  // Image click → navigate to photo.link (if set)
+  lbImg.addEventListener('click', function (e) {
+    var link = this.dataset.link
+    if (link) {
+      e.stopPropagation()
+      window.open(link, '_blank', 'noopener,noreferrer')
+    }
+  })
 
   // --- Keyboard support ---
   document.addEventListener('keydown', function (e) {
