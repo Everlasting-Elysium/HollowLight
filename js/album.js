@@ -121,7 +121,7 @@
     lbImg.classList.add('album-lightbox__img--loading')
 
     // Resolve src — handle Hexo url_for at build time, but src is already resolved in __ALBUM_DATA__
-    var src = photo.src || ''
+    var src = photo.url || photo.src || ''
 
     lbImg.onload = function () {
       lbImg.classList.remove('album-lightbox__img--loading')
@@ -133,7 +133,7 @@
     lbImg.src = src
     lbImg.alt = photo.title || ''
 
-    lbTitle.textContent = photo.title || '未命名'
+    lbTitle.textContent = photo.title || photo.alt || '未命名'
     lbDesc.textContent = photo.desc || ''
     lbCounter.textContent = (currentPhoto + 1) + ' / ' + photos.length
 
