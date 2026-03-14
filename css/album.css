@@ -576,89 +576,93 @@
 .album-lightbox__nav--prev { left: 20px; }
 .album-lightbox__nav--next { right: 20px; }
 
-/* Main image stage */
+/* Main image stage — 提供 3D 透视空间 */
 .album-lightbox__stage {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 右下留空给叠影 */
-  padding: 20px 56px 56px 20px;
-  animation: album-lbStageIn 400ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  padding: 60px;
+  animation: album-lbStageIn 500ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 @keyframes album-lbStageIn {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* --- 卡片包装器：倾斜 + 叠影 + hover 钟摆 --- */
+/* --- 3D 卡片容器 --- */
 .album-lightbox__card {
   position: relative;
-  z-index: 1;
   display: inline-block;
-  transform: rotate(-5deg);
-  transform-origin: 50% 18%;
-  /* hover 结束后平滑回原始倾斜 */
-  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform-style: preserve-3d;
+  /* 默认轻微倾斜，展示 3D 深度 */
+  transform: rotateY(-12deg) rotateX(3deg);
+  transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* hover 钟摆摆动 */
+/* hover 时绕 Y 轴来回摆动，前后玻璃产生视差 → 真实 3D 感 */
 .album-lightbox__card:hover {
-  animation: lb-pendulum 2.2s ease-in-out infinite;
-  transform-origin: 50% 18%;
+  animation: lb-3d-sway 3s ease-in-out infinite;
 }
 
-@keyframes lb-pendulum {
-  0%   { transform: rotate(-5deg); }
-  28%  { transform: rotate(-1.5deg); }
-  72%  { transform: rotate(-8.5deg); }
-  100% { transform: rotate(-5deg); }
+@keyframes lb-3d-sway {
+  0%   { transform: rotateY(-12deg) rotateX(3deg); }
+  35%  { transform: rotateY(12deg)  rotateX(-2deg); }
+  65%  { transform: rotateY(-18deg) rotateX(5deg); }
+  100% { transform: rotateY(-12deg) rotateX(3deg); }
 }
 
-/* 叠影层1：近处 */
+/* 前玻璃层：向观者方向突出 translateZ(+) */
 .album-lightbox__card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
-  transform: translate(11px, 11px) rotate(3.5deg);
-  z-index: 1;
+  inset: -10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    inset 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.03);
+  transform: translateZ(28px);
   pointer-events: none;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
-/* 叠影层2：远处 */
+/* 后玻璃层：向后凹入 translateZ(-) */
 .album-lightbox__card::after {
   content: '';
   position: absolute;
-  inset: 0;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
-  transform: translate(20px, 20px) rotate(7deg);
-  z-index: 0;
+  inset: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(8, 8, 20, 0.6);
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateZ(-22px);
   pointer-events: none;
 }
 
 .album-lightbox__img {
-  position: relative;
-  z-index: 2;
   display: block;
-  max-width: 60vw;
-  max-height: 72vh;
+  max-width: 58vw;
+  max-height: 70vh;
   width: auto;
   height: auto;
   object-fit: contain;
-  border: 1.5px solid rgba(255, 255, 255, 0.72);
-  border-radius: 6px;
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.65),
-    0 4px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  /* img 在 Z=0，夹在前后玻璃之间 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   transition: opacity 200ms ease;
 }
 
