@@ -160,3 +160,15 @@
     transform: translateY(10px);
   }
 }
+
+/* --- Hide header while curtain fills viewport --- */
+header.header--curtain-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+}
+
+/* --- Account for fixed header when articles follow curtain --- */
+.hl-curtain ~ main {
+  padding-top: var(--hl-header-height);
+}
