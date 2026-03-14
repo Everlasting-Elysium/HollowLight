@@ -9,7 +9,7 @@
   function syncHeader() {
     var h = curtain.offsetHeight || window.innerHeight;
     if (header) {
-      header.classList.toggle('header--curtain-hidden', window.scrollY < h * 0.82);
+      header.classList.toggle('header--curtain-hidden', window.scrollY < h * 0.5);
     }
   }
   window.addEventListener('scroll', syncHeader, { passive: true });
