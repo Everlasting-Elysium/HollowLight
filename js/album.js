@@ -23,7 +23,7 @@
   const lbPrev = lightbox.querySelector('.album-lightbox__nav--prev')
   const lbNext = lightbox.querySelector('.album-lightbox__nav--next')
   const lbBackdrop = lightbox.querySelector('.album-lightbox__backdrop')
-
+  const lbContainer = lightbox.querySelector('.album-lightbox__container')
   let currentAlbum = 0
   let currentPhoto = 0
   let isOpen = false
@@ -181,6 +181,19 @@
 
   // Backdrop click to close
   lbBackdrop.addEventListener('click', closeLightbox)
+
+  // Click on container background (outside image/nav/close/info) → close
+  lbContainer.addEventListener('click', function (e) {
+    var t = e.target
+    if (
+      t === lbImg ||
+      t.closest('.album-lightbox__nav') ||
+      t.closest('.album-lightbox__close') ||
+      t.closest('.album-lightbox__stage') ||
+      t.closest('.album-lightbox__info')
+    ) return
+    closeLightbox()
+  })
 
   // Image click → navigate to photo.link (if set)
   lbImg.addEventListener('click', function (e) {
