@@ -63,8 +63,8 @@
           <div class="album-card__frame">
             <img
               class="album-card__img"
-              src="<%- url_for(photo.src) %>"
-              alt="<%= photo.title || '' %>"
+              src="<%- url_for(photo.thumb || photo.url || photo.src || '') %>"
+              alt="<%= photo.alt || photo.title || '' %>"
               loading="lazy"
               onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.parentElement.classList.add('album-card__frame--error')"
             />
@@ -72,7 +72,7 @@
             <div class="album-card__glow" aria-hidden="true"></div>
           </div>
           <div class="album-card__overlay">
-            <h3 class="album-card__title"><%= photo.title || '未命名' %></h3>
+            <h3 class="album-card__title"><%= photo.title || photo.alt || '未命名' %></h3>
             <% if (photo.desc) { %>
             <p class="album-card__desc"><%= photo.desc %></p>
             <% } %>
