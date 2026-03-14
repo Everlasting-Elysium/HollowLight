@@ -12,9 +12,9 @@
   'use strict';
 
   /* ── Config ─────────────────────────────────────── */
-  var AUTO_SPEED_X  = 0.0008;   // rad/frame (tilt up)
-  var AUTO_SPEED_Y  = 0.003;    // rad/frame (spin right)
-  var MOUSE_FACTOR  = 0.022;    // mouse-drag influence
+  var AUTO_SPEED_X  = 0.0003;   // rad/frame (tilt up)
+  var AUTO_SPEED_Y  = 0.001;    // rad/frame (spin right)
+  var MOUSE_FACTOR  = 0.018;    // mouse-drag influence
   var FOV           = 280;      // perspective focal length
   var MIN_FONT      = 12;       // px — smallest tag
   var MAX_FONT      = 26;       // px — largest tag
@@ -74,11 +74,14 @@
   var curSpeedY = AUTO_SPEED_Y;
   var tgtSpeedX = AUTO_SPEED_X;
   var tgtSpeedY = AUTO_SPEED_Y;
+  var anyHovered = false;       // true while any tag is under cursor
 
   /* ── Mouse control ───────────────────────────────── */
   var wrap = document.getElementById('tag-sphere-wrap') || container;
 
   wrap.addEventListener('mousemove', function (e) {
+    /* Do not override speed while a tag is hovered — let it brake to 0 */
+    if (anyHovered) return;
     var rect = wrap.getBoundingClientRect();
     var mx   = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
     var my   = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
@@ -87,14 +90,28 @@
   });
 
   wrap.addEventListener('mouseleave', function () {
+    anyHovered = false;
     tgtSpeedX = AUTO_SPEED_X;
     tgtSpeedY = AUTO_SPEED_Y;
   });
 
-  /* Hover highlight */
+  /* Hover: freeze sphere so the tag stays put and is always clickable */
   items.forEach(function (item) {
-    item.el.addEventListener('mouseenter', function () { item.hovered = true;  });
-    item.el.addEventListener('mouseleave', function () { item.hovered = false; });
+    item.el.addEventListener('mouseenter', function () {
+      item.hovered = true;
+      anyHovered   = true;
+      tgtSpeedX    = 0;
+      tgtSpeedY    = 0;
+    });
+    item.el.addEventListener('mouseleave', function () {
+      item.hovered = false;
+      /* Only clear anyHovered if no sibling is still hovered */
+      anyHovered = items.some(function (it) { return it.hovered; });
+      if (!anyHovered) {
+        tgtSpeedX = AUTO_SPEED_X;
+        tgtSpeedY = AUTO_SPEED_Y;
+      }
+    });
   });
 
   /* ── Rotation helpers ────────────────────────────── */
