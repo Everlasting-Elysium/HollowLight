@@ -69,7 +69,6 @@
               loading="lazy"
               onerror="this.onerror=null;this.src='<%- url_for('/img/default-cover.svg') %>';this.parentElement.classList.add('album-card__frame--error')"
             />
-            <span class="album-card__index"><%= String(photoIdx + 1).padStart(2, '0') %></span>
             <div class="album-card__glow" aria-hidden="true"></div>
           </div>
           <div class="album-card__overlay">
