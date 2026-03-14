@@ -239,11 +239,14 @@ header {
   background: var(--hl-black);
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 16px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: var(--hl-z-header);
   width: 100%;
+  padding: 0 5%;
   user-select: none;
 }
 
@@ -255,7 +258,7 @@ header .personal {
   height: 46px;
   min-width: 0;
   flex-shrink: 1;
-  margin: 0 0 0 10px;
+  margin: 0;
   border-radius: var(--hl-radius-pill);
   box-shadow:
     inset 0 2px 2px 1px var(--hl-inset-light),
@@ -358,7 +361,7 @@ header .tabs {
   justify-content: center;
   flex-shrink: 0;
   margin-left: auto;
-  margin-right: 10px;
+  margin-right: 0;
   background-color: var(--hl-tab-bg);
   padding: 4px;
   box-shadow: inset 0 0 2px 4px var(--hl-tab-shadow);
