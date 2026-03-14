@@ -19,7 +19,7 @@
 <meta property="og:description" content="《绝区零》的 UI 设计是近年来游戏界面设计中少见的佳作。今天拆解一下它的核心视觉语言，以及 HollowLight 是如何将其迁移到博客场景的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-18T12:30:00.000Z">
-<meta property="article:modified_time" content="2026-03-14T01:19:48.300Z">
+<meta property="article:modified_time" content="2026-03-14T01:23:06.259Z">
 <meta property="article:author" content="传奇绳匠">
 <meta property="article:tag" content="UI">
 <meta property="article:tag" content="ZZZ">
@@ -43,28 +43,30 @@
 
   <!-- Header -->
   
-<header>
+  <header>
   <!-- Personal Info Card -->
-  <div class="personal">
-    <a href="/HollowLight/" class="avatar-link">
+  <a href="/HollowLight/" class="personal">
+    <span class="avatar-link">
       <img
         src="/HollowLight/img/avatar.svg"
         alt="传奇绳匠"
         class="avatar"
         onerror="this.onerror=null;this.style.background='#333';"
       >
-    </a>
-    <div class="url-bar">
-      <span class="url-bar-lock">
-        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="6" width="10" height="7" rx="1.5" fill="currentColor"/>
-          <path d="M3 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        </svg>
+    </span>
+    <span class="info-bar">
+      <span class="info-bio">这里是我的博客</span>
+      <span class="info-url">
+        <span class="info-url-lock">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="6" width="10" height="7" rx="1.5" fill="currentColor"/>
+            <path d="M3 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </span>
+        https://Everlasting-Elysium.github.io/HollowLight/
       </span>
-      <span class="url-short">EVERLASTING-ELYSIUM.GITHUB.IO/HOLLOWLIGHT</span>
-      <span class="url-full">https://Everlasting-Elysium.github.io/HollowLight/</span>
-    </div>
-  </div>
+    </span>
+  </a>
 
   <!-- Navigation Tabs -->
   <div class="tabs">
