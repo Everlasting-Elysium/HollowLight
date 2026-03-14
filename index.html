@@ -105,6 +105,43 @@
   <main>
     
 
+<div class="hl-curtain" id="hl-curtain">
+  <div class="curtain-bg-wrap">
+    
+    <div class="curtain-bg curtain-bg--img" style="background-image: url('/HollowLight/img/curtain-bg.jpg');"></div>
+    
+    <div class="curtain-overlay"></div>
+  </div>
+  <div class="curtain-body">
+    <h1 class="curtain-title">HollowLight Demo</h1>
+    <div class="curtain-tw">
+      <span class="curtain-tw-text" id="curtain-tw-text"></span><span class="curtain-tw-cursor" aria-hidden="true"></span>
+    </div>
+    <button class="curtain-scroll-btn" id="curtain-scroll-btn" aria-label="向下探索">
+      <span class="curtain-scroll-label">向下探索</span>
+      <svg class="curtain-scroll-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+  </div>
+  <button class="curtain-toggle-btn" id="curtain-toggle-btn" title="关闭幕布" aria-label="关闭幕布">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
+      <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
+      <line x1="1" y1="1" x2="23" y2="23"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  window.__HL_CURTAIN_TEXTS__ = ["这里是我的博客","记录代码与生活","探索未知的边界"];
+</script>
+<link rel="stylesheet" href="/HollowLight/css/curtain.css">
+<script src="/HollowLight/js/curtain.js"></script>
+
+
+
+
 
 <link rel="stylesheet" href="/HollowLight/css/home.css">
 
@@ -145,27 +182,6 @@
       
     
       
-        <a href="/HollowLight/2024/02/18/02-zzz-design-language/" class="card">
-          <div class="card-cover">
-            <img
-              class="headimg"
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80"
-              alt="解构绝区零的设计语言"
-              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg'"
-            >
-            <span class="card-views">👁 876</span>
-            <div class="card-author"><img class="card-author-avatar" src="/HollowLight/img/avatar.svg" alt="" onerror="this.onerror=null;this.style.display='none'"><span class="card-author-name">传奇绳匠</span></div>
-          </div>
-          <div class="post">
-            <h2 class="title">解构绝区零的设计语言</h2>
-            <p class="excerpt">
-              《绝区零》的 UI 设计是近年来游戏界面设计中少见的佳作。今天拆解一下它的核心视觉语言，以及 HollowLight 是如何将其迁移到博客场景的。
-            </p>
-          </div>
-        </a>
-      
-    
-      
         <a href="/HollowLight/2024/01/28/03-markdown-showcase/" class="card">
           <div class="card-cover">
             <img
@@ -181,6 +197,27 @@
             <h2 class="title">Markdown 样式展示</h2>
             <p class="excerpt">
               这篇文章展示 HollowLight 主题对各类 Markdown 元素的渲染效果。
+            </p>
+          </div>
+        </a>
+      
+    
+      
+        <a href="/HollowLight/2024/02/18/02-zzz-design-language/" class="card">
+          <div class="card-cover">
+            <img
+              class="headimg"
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80"
+              alt="解构绝区零的设计语言"
+              onerror="this.onerror=null;this.src='/HollowLight/img/default-cover.svg'"
+            >
+            <span class="card-views">👁 876</span>
+            <div class="card-author"><img class="card-author-avatar" src="/HollowLight/img/avatar.svg" alt="" onerror="this.onerror=null;this.style.display='none'"><span class="card-author-name">传奇绳匠</span></div>
+          </div>
+          <div class="post">
+            <h2 class="title">解构绝区零的设计语言</h2>
+            <p class="excerpt">
+              《绝区零》的 UI 设计是近年来游戏界面设计中少见的佳作。今天拆解一下它的核心视觉语言，以及 HollowLight 是如何将其迁移到博客场景的。
             </p>
           </div>
         </a>
