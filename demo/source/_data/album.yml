@@ -60,3 +60,36 @@ albums:
       - url: https://images.unsplash.com/photo-1536148935331-408321065b18?w=1200&q=80
         thumb: https://images.unsplash.com/photo-1536148935331-408321065b18?w=400&q=75
         alt: 暗色科技
+
+
+  - id: hollowlight-bus
+    name: 总线
+    description: 随机播放展示图集
+    photos:
+      - url: https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=333&fit=crop&q=75
+        alt: 山脉云海
+      - url: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=1200&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=600&fit=crop&q=75
+        alt: 星空夜景
+      - url: https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=1200&h=600&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=500&h=250&fit=crop&q=75
+        alt: 公路远绾
+      - url: https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=1100&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=550&fit=crop&q=75
+        alt: 绿色山谷
+      - url: https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=900&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&h=375&fit=crop&q=75
+        alt: 森林阳光
+      - url: https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=800&h=1200&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=400&h=600&fit=crop&q=75
+        alt: 海浪垂直
+      - url: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=700&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&h=292&fit=crop&q=75
+        alt: 森林晟光
+      - url: https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&h=600&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=267&fit=crop&q=75
+        alt: 海屈1
+      - url: https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=800&h=1100&fit=crop&q=80
+        thumb: https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=400&h=550&fit=crop&q=75
+        alt: 湖光倒影
