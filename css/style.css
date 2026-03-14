@@ -239,7 +239,7 @@ header {
   background: var(--hl-black);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   position: fixed;
   top: 0;
@@ -579,9 +579,6 @@ main {
     --hl-header-height: 100px;
   }
 
-  header .personal {
-    margin-left: 20px;
-  }
 
   header .tabs .tab {
     padding: 8px 28px;
