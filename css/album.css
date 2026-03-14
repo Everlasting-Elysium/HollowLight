@@ -6,9 +6,9 @@
 
 /* --- CSS Variables (album-scoped, no global pollution) --- */
 .album-page {
-  --album-bg: #0a0a14;
-  --album-bg-card: #0f1024;
-  --album-bg-card-hover: #141636;
+  --album-bg: #000;
+  --album-bg-card: #0a0a0a;
+  --album-bg-card-hover: #111;
   --album-surface: #12132a;
   --album-border: #1e2048;
   --album-border-hover: #3a3e8a;
@@ -197,9 +197,7 @@
   padding: 40px 24px 40px;
   border: 1px solid rgba(100, 110, 180, 0.25);
   border-radius: 20px;
-  background: rgba(10, 10, 20, 0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: transparent;
 }
 
 /* --- Album Tabs --- */
