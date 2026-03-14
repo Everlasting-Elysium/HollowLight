@@ -257,7 +257,7 @@ header .personal {
   background: linear-gradient(var(--hl-card-gradient-start), var(--hl-card-gradient-end));
   height: 46px;
   min-width: 0;
-  flex-shrink: 1;
+  flex: 1;
   margin: 0;
   border-radius: var(--hl-radius-pill);
   box-shadow:
