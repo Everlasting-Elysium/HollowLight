@@ -1,0 +1,38 @@
+name: Compress Album Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'source/img/**'
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2     # need HEAD~1 to detect changed files
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install sharp
+        run: npm install sharp
+
+      - name: Generate thumbnails
+        run: node .github/scripts/compress-images.js
+
+      - name: Commit thumbnails
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "source/img/**/*.thumb.webp" || true
+          git diff --staged --quiet && echo "No new thumbnails." || \
+            git commit -m "chore: auto-generate album thumbnails [skip ci]" && git push
