@@ -4,6 +4,17 @@
   var curtain = document.getElementById('hl-curtain');
   if (!curtain) return;
 
+  // --- Header visibility: hide while curtain fills viewport ---
+  var header = document.querySelector('header');
+  function syncHeader() {
+    var h = curtain.offsetHeight || window.innerHeight;
+    if (header) {
+      header.classList.toggle('header--curtain-hidden', window.scrollY < h * 0.82);
+    }
+  }
+  window.addEventListener('scroll', syncHeader, { passive: true });
+  syncHeader();
+
   // --- Typewriter ---
   var texts = (window.__HL_CURTAIN_TEXTS__ || []).filter(Boolean);
   if (!texts.length) texts = [''];

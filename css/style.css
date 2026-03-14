@@ -248,6 +248,7 @@ header {
   width: 100%;
   padding: 0 5%;
   user-select: none;
+  transition: opacity 0.4s ease, transform 0.35s ease;
 }
 
 
@@ -589,6 +590,10 @@ body > main {
 
 /* ---- Responsive: Mobile (<=768px) ---- */
 @media (max-width: 768px) {
+  :root {
+    --hl-header-height: 140px;
+  }
+
   header {
     flex-direction: column;
     height: auto;
@@ -616,7 +621,7 @@ body > main {
     font-size: 16px;
   }
 
-  main {
+  body > main {
     /* Header becomes taller on mobile due to column layout */
     margin-top: 140px;
   }
