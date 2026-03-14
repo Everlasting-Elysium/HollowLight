@@ -52,8 +52,7 @@
         <a
           class="friend-card"
           href="<%= item.url %>"
-          target="_blank"
-          rel="noopener noreferrer"
+          <% if (!/^\//.test(item.url)) { %>target="_blank" rel="noopener noreferrer"<% } %>
           title="<%= item.name %>"
           style="animation-delay: <%= idx * 60 %>ms"
         >
