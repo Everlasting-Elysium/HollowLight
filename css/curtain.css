@@ -6,7 +6,6 @@
 /* ---- Curtain Container ---- */
 .hl-curtain {
   position: relative;
-  margin-top: calc(-1 * var(--hl-header-height));
   height: 100vh;
   overflow: hidden;
   display: flex;
