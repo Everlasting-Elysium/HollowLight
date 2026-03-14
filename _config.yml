@@ -61,3 +61,7 @@ curtain:
     - "这里是我的博客"
     - "记录代码与生活"
     - "探索未知的边界"
+
+# 本地搜索（需要在博客 _config.yml 安装 hexo-generator-searchdb）
+search:
+  enable: true

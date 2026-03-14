@@ -65,3 +65,10 @@ pagination_dir: page
 
 # Theme
 theme: HollowLight
+
+# hexo-generator-searchdb
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
