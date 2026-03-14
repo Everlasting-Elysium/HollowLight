@@ -9,7 +9,7 @@
   --album-bg: #000;
   --album-bg-card: #0a0a0a;
   --album-bg-card-hover: #111;
-  --album-surface: #12132a;
+  --album-surface: #0d0d0d;
   --album-border: #1e2048;
   --album-border-hover: #3a3e8a;
   --album-text: #c8cae0;
@@ -197,7 +197,7 @@
   padding: 40px 24px 40px;
   border: 1px solid rgba(100, 110, 180, 0.25);
   border-radius: 20px;
-  background: transparent;
+  background: #000;
 }
 
 /* --- Album Tabs --- */
