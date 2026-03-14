@@ -192,8 +192,8 @@
 .album-content {
   position: relative;
   z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto 60px;
+  max-width: none;
+  margin: 0 5% 60px;
   padding: 40px 24px 40px;
   border: 1px solid rgba(100, 110, 180, 0.25);
   border-radius: 20px;

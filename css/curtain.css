@@ -121,59 +121,6 @@
   animation: curtain-arrow-bounce 1.8s ease-in-out infinite;
 }
 
-/* ---- Toggle Button (close curtain) ---- */
-.curtain-toggle-btn {
-  position: absolute;
-  top: calc(var(--hl-header-height) + 12px);
-  right: 20px;
-  z-index: 2;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.55);
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.curtain-toggle-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-/* ---- Restore Button (fixed bottom-right after curtain hidden) ---- */
-.curtain-restore-btn {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: var(--hl-z-header);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.curtain-restore-btn:hover {
-  border-color: var(--hl-accent);
-  color: var(--hl-accent);
-  background: rgba(0, 0, 0, 0.85);
-}
 
 /* ---- Keyframes ---- */
 @keyframes curtain-zoom {
