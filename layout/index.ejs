@@ -1,3 +1,6 @@
+<% if (theme.curtain && theme.curtain.enable) { %>
+<%- partial('_partials/curtain') %>
+<% } %>
 <% var defaultCover = url_for('/img/default-cover.svg'); %>
 <% var authorAvatar = url_for((theme.author && theme.author.avatar) ? theme.author.avatar : '/img/avatar.svg'); %>
 <% var authorName = (theme.author && theme.author.name) ? theme.author.name : (config.author || ''); %>

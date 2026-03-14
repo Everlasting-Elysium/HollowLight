@@ -1,0 +1,44 @@
+<%
+  var curtain = theme.curtain || {};
+  var bg = curtain.background || {};
+  var bgType = bg.type || 'image';
+  var bgUrl = bg.url || theme.background || '';
+  var twTexts = curtain.typewriter || [];
+%>
+<div class="hl-curtain" id="hl-curtain">
+  <div class="curtain-bg-wrap">
+    <% if (bgType === 'video') { %>
+    <video class="curtain-bg curtain-bg--video" autoplay muted loop playsinline>
+      <source src="<%- url_for(bgUrl) %>">
+    </video>
+    <% } else { %>
+    <div class="curtain-bg curtain-bg--img" style="background-image: url('<%- url_for(bgUrl) %>');"></div>
+    <% } %>
+    <div class="curtain-overlay"></div>
+  </div>
+  <div class="curtain-body">
+    <h1 class="curtain-title"><%= config.title || 'HollowLight' %></h1>
+    <div class="curtain-tw">
+      <span class="curtain-tw-text" id="curtain-tw-text"></span><span class="curtain-tw-cursor" aria-hidden="true"></span>
+    </div>
+    <button class="curtain-scroll-btn" id="curtain-scroll-btn" aria-label="向下探索">
+      <span class="curtain-scroll-label">向下探索</span>
+      <svg class="curtain-scroll-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+  </div>
+  <button class="curtain-toggle-btn" id="curtain-toggle-btn" title="关闭幕布" aria-label="关闭幕布">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
+      <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
+      <line x1="1" y1="1" x2="23" y2="23"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  window.__HL_CURTAIN_TEXTS__ = <%- JSON.stringify(twTexts) %>;
+</script>
+<link rel="stylesheet" href="<%- url_for('/css/curtain.css') %>">
+<script src="<%- url_for('/js/curtain.js') %>"></script>

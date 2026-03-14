@@ -50,3 +50,14 @@ comment:
 footer:
   since: 2024
   icp: ""                          # 备案号，留空不显示
+
+# 首页幕布
+curtain:
+  enable: true
+  background:
+    type: image        # image / video / gif
+    url: /img/curtain-bg.jpg
+  typewriter:
+    - "这里是我的博客"
+    - "记录代码与生活"
+    - "探索未知的边界"
