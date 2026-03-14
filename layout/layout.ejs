@@ -34,7 +34,7 @@
   <%- partial('_partials/header') %>
 
   <!-- Main Content -->
-  <main<%= (page.layout === 'index' && theme.curtain && theme.curtain.enable) ? ' class="has-curtain"' : '' %>>
+  <main<%= (() => { var cls = []; if (page.layout === 'index' && theme.curtain && theme.curtain.enable) cls.push('has-curtain'); if (page.layout === 'post' && page.headimg) cls.push('has-hero'); return cls.length ? ' class="' + cls.join(' ') + '"' : ''; })() %>>
     <%- body %>
   </main>
 
