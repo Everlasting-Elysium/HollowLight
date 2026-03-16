@@ -13,8 +13,11 @@
   /* URL bar */
   var siteUrl = config.url || '';
   var urlFull = siteUrl.replace(/\/+$/, '') + '/';
-  %>
-  <header>
+
+  /* Pre-hide header when curtain fills the viewport (avoids FOUC black bar) */
+  var hasCurtain = (page.layout === 'index' && theme.curtain && theme.curtain.enable);
+%>
+  <header<%= hasCurtain ? ' class="header--curtain-hidden"' : '' %>>
   <!-- Personal Info Card -->
   <a href="<%- url_for('/') %>" class="personal">
     <span class="avatar-link">
