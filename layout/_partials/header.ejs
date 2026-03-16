@@ -17,7 +17,7 @@
   /* Pre-hide header when curtain fills the viewport (avoids FOUC black bar) */
   var hasCurtain = (is_home() && theme.curtain && theme.curtain.enable);
 %>
-  <header<%= hasCurtain ? ' class="header--curtain-hidden"' : '' %>>
+  <header<%- hasCurtain ? ' class="header--curtain-hidden"' : '' %>>
   <!-- Personal Info Card -->
   <a href="<%- url_for('/') %>" class="personal">
     <span class="avatar-link">
