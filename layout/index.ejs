@@ -20,7 +20,6 @@
               onerror="this.onerror=null;this.src='<%- defaultCover %>'"
             >
             <% if (post.views) { %><span class="card-views">👁 <%= post.views %></span><% } %>
-            <div class="card-author"><img class="card-author-avatar" src="<%- authorAvatar %>" alt="" onerror="this.onerror=null;this.style.display='none'"><span class="card-author-name"><%= authorName %></span></div>
           </div>
           <div class="post">
             <h2 class="title">【置顶】<%= post.title || '' %></h2>
@@ -49,7 +48,6 @@
               onerror="this.onerror=null;this.src='<%- defaultCover %>'"
             >
             <% if (post.views) { %><span class="card-views">👁 <%= post.views %></span><% } %>
-            <div class="card-author"><img class="card-author-avatar" src="<%- authorAvatar %>" alt="" onerror="this.onerror=null;this.style.display='none'"><span class="card-author-name"><%= authorName %></span></div>
           </div>
           <div class="post">
             <h2 class="title"><%= post.title || '' %></h2>
