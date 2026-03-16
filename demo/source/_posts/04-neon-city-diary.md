@@ -2,7 +2,7 @@
 title: 霓虹城市日记
 date: 2024-01-10 22:00:00
 tags: [摄影, 城市, 夜景]
-headimg: https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80
+headimg: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80
 views: 342
 ---
 
