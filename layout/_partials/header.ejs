@@ -15,7 +15,7 @@
   var urlFull = siteUrl.replace(/\/+$/, '') + '/';
 
   /* Pre-hide header when curtain fills the viewport (avoids FOUC black bar) */
-  var hasCurtain = (page.layout === 'index' && theme.curtain && theme.curtain.enable);
+  var hasCurtain = (is_home() && theme.curtain && theme.curtain.enable);
 %>
   <header<%= hasCurtain ? ' class="header--curtain-hidden"' : '' %>>
   <!-- Personal Info Card -->
