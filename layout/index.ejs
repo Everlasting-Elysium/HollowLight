@@ -37,7 +37,7 @@
     <% }) %>
 
     <%/* ---- Regular posts ---- */%>
-    <% site.posts.each(function(post) { %>
+    <% page.posts.each(function(post) { %>
       <% if (!post.pin) { %>
         <a href="<%- url_for(post.path) %>" class="card">
           <div class="card-cover">
